@@ -1,0 +1,103 @@
+var _defs, _path, _path2, _path3, _circle, _use, _use2, _use3, _use4, _path4, _path5, _use5, _use6, _use7;
+function _extends() { _extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+import * as React from "react";
+const SvgGd = props => /*#__PURE__*/React.createElement("svg", _extends({
+  xmlns: "http://www.w3.org/2000/svg",
+  xmlnsXlink: "http://www.w3.org/1999/xlink",
+  viewBox: "0 0 512 512"
+}, props), _defs || (_defs = /*#__PURE__*/React.createElement("defs", null, /*#__PURE__*/React.createElement("g", {
+  id: "gd_svg__c"
+}, /*#__PURE__*/React.createElement("g", {
+  id: "gd_svg__b"
+}, /*#__PURE__*/React.createElement("path", {
+  id: "gd_svg__a",
+  fill: "#fcd116",
+  d: "M0-1v1h.5",
+  transform: "rotate(18 0 -1)"
+}), /*#__PURE__*/React.createElement("use", {
+  xlinkHref: "#gd_svg__a",
+  width: "100%",
+  height: "100%",
+  transform: "scale(-1 1)"
+})), /*#__PURE__*/React.createElement("use", {
+  xlinkHref: "#gd_svg__b",
+  width: "100%",
+  height: "100%",
+  transform: "rotate(72)"
+}), /*#__PURE__*/React.createElement("use", {
+  xlinkHref: "#gd_svg__b",
+  width: "100%",
+  height: "100%",
+  transform: "rotate(144)"
+}), /*#__PURE__*/React.createElement("use", {
+  xlinkHref: "#gd_svg__b",
+  width: "100%",
+  height: "100%",
+  transform: "rotate(-144)"
+}), /*#__PURE__*/React.createElement("use", {
+  xlinkHref: "#gd_svg__b",
+  width: "100%",
+  height: "100%",
+  transform: "rotate(-72)"
+})))), _path || (_path = /*#__PURE__*/React.createElement("path", {
+  fill: "#ce1126",
+  d: "M0 0h512v512H0z"
+})), _path2 || (_path2 = /*#__PURE__*/React.createElement("path", {
+  fill: "#007a5e",
+  d: "M71.7 71.7h368.6v368.6H71.7z"
+})), _path3 || (_path3 = /*#__PURE__*/React.createElement("path", {
+  fill: "#fcd116",
+  d: "M71.7 71.7h368.6L71.7 440.4h368.6z"
+})), _circle || (_circle = /*#__PURE__*/React.createElement("circle", {
+  cx: 255.9,
+  cy: 256.1,
+  r: 61.4,
+  fill: "#ce1126"
+})), _use || (_use = /*#__PURE__*/React.createElement("use", {
+  xlinkHref: "#gd_svg__c",
+  width: "100%",
+  height: "100%",
+  transform: "translate(256 256)scale(56.32)"
+})), _use2 || (_use2 = /*#__PURE__*/React.createElement("use", {
+  xlinkHref: "#gd_svg__d",
+  width: "100%",
+  height: "100%",
+  x: -100,
+  transform: "translate(-16.4 -.1)"
+})), _use3 || (_use3 = /*#__PURE__*/React.createElement("use", {
+  xlinkHref: "#gd_svg__c",
+  id: "gd_svg__d",
+  width: "100%",
+  height: "100%",
+  transform: "translate(256 35.9)scale(33.28)"
+})), _use4 || (_use4 = /*#__PURE__*/React.createElement("use", {
+  xlinkHref: "#gd_svg__d",
+  width: "100%",
+  height: "100%",
+  x: 100,
+  transform: "translate(16.4)"
+})), _path4 || (_path4 = /*#__PURE__*/React.createElement("path", {
+  fill: "#ce1126",
+  d: "M99.8 256.8c7.7 14.3 22.6 29.8 35.7 35.3.2-14.5-5-33.2-12-48z"
+})), _path5 || (_path5 = /*#__PURE__*/React.createElement("path", {
+  fill: "#fcd116",
+  d: "M86.8 207.6c11.1 23.3-29 78.7 37.8 91.7a67.5 67.5 0 0 1-11.5-44.7 75.5 75.5 0 0 1 34.6 32.8c17.5-63.4-44.8-59.5-61-79.8z"
+})), _use5 || (_use5 = /*#__PURE__*/React.createElement("use", {
+  xlinkHref: "#gd_svg__d",
+  width: "100%",
+  height: "100%",
+  x: -100,
+  transform: "translate(-16.4 442)"
+})), _use6 || (_use6 = /*#__PURE__*/React.createElement("use", {
+  xlinkHref: "#gd_svg__c",
+  width: "100%",
+  height: "100%",
+  transform: "translate(256 478)scale(33.28)"
+})), _use7 || (_use7 = /*#__PURE__*/React.createElement("use", {
+  xlinkHref: "#gd_svg__d",
+  width: "100%",
+  height: "100%",
+  x: 100,
+  transform: "translate(16.4 442.2)"
+})));
+export default SvgGd;

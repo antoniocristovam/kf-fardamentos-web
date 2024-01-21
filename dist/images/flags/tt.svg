@@ -1,0 +1,21 @@
+var _g;
+function _extends() { _extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+import * as React from "react";
+const SvgTt = props => /*#__PURE__*/React.createElement("svg", _extends({
+  xmlns: "http://www.w3.org/2000/svg",
+  viewBox: "0 0 512 512"
+}, props), /*#__PURE__*/React.createElement("path", {
+  fill: "#fff",
+  d: "M0 0h512v512H0z",
+  style: {
+    width: 0
+  }
+}), _g || (_g = /*#__PURE__*/React.createElement("g", {
+  fillRule: "evenodd"
+}, /*#__PURE__*/React.createElement("path", {
+  fill: "#e00000",
+  d: "M371 512 0 1v510.7zM141 0l371 511V.2z"
+}), /*#__PURE__*/React.createElement("path", {
+  d: "M22.2.2h94.9l374.5 511.3h-97.9z"
+}))));
+export default SvgTt;

@@ -1,0 +1,68 @@
+var _path, _path2, _path3, _g;
+function _extends() { _extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+import * as React from "react";
+const SvgIn = props => /*#__PURE__*/React.createElement("svg", _extends({
+  xmlns: "http://www.w3.org/2000/svg",
+  xmlnsXlink: "http://www.w3.org/1999/xlink",
+  viewBox: "0 0 512 512"
+}, props), _path || (_path = /*#__PURE__*/React.createElement("path", {
+  fill: "#f93",
+  d: "M0 0h512v170.7H0z"
+})), _path2 || (_path2 = /*#__PURE__*/React.createElement("path", {
+  fill: "#fff",
+  d: "M0 170.7h512v170.6H0z"
+})), _path3 || (_path3 = /*#__PURE__*/React.createElement("path", {
+  fill: "#128807",
+  d: "M0 341.3h512V512H0z"
+})), _g || (_g = /*#__PURE__*/React.createElement("g", {
+  transform: "translate(256 256)scale(3.41333)"
+}, /*#__PURE__*/React.createElement("circle", {
+  r: 20,
+  fill: "#008"
+}), /*#__PURE__*/React.createElement("circle", {
+  r: 17.5,
+  fill: "#fff"
+}), /*#__PURE__*/React.createElement("circle", {
+  r: 3.5,
+  fill: "#008"
+}), /*#__PURE__*/React.createElement("g", {
+  id: "in_svg__d"
+}, /*#__PURE__*/React.createElement("g", {
+  id: "in_svg__c"
+}, /*#__PURE__*/React.createElement("g", {
+  id: "in_svg__b"
+}, /*#__PURE__*/React.createElement("g", {
+  id: "in_svg__a",
+  fill: "#008"
+}, /*#__PURE__*/React.createElement("circle", {
+  r: 0.9,
+  transform: "rotate(7.5 -8.8 133.5)"
+}), /*#__PURE__*/React.createElement("path", {
+  d: "M0 17.5.6 7 0 2l-.6 5z"
+})), /*#__PURE__*/React.createElement("use", {
+  xlinkHref: "#in_svg__a",
+  width: "100%",
+  height: "100%",
+  transform: "rotate(15)"
+})), /*#__PURE__*/React.createElement("use", {
+  xlinkHref: "#in_svg__b",
+  width: "100%",
+  height: "100%",
+  transform: "rotate(30)"
+})), /*#__PURE__*/React.createElement("use", {
+  xlinkHref: "#in_svg__c",
+  width: "100%",
+  height: "100%",
+  transform: "rotate(60)"
+})), /*#__PURE__*/React.createElement("use", {
+  xlinkHref: "#in_svg__d",
+  width: "100%",
+  height: "100%",
+  transform: "rotate(120)"
+}), /*#__PURE__*/React.createElement("use", {
+  xlinkHref: "#in_svg__d",
+  width: "100%",
+  height: "100%",
+  transform: "rotate(-120)"
+}))));
+export default SvgIn;

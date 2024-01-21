@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "types": [
+      "./src/presentation/app/@types/yup.d.ts",
+      "./src/presentation/app/@types/images.d.ts",
+      "node"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": false,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "module": "esnext",
+    "baseUrl": "src", 
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx"
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/config.js", "src"],
+  "exclude": ["node_modules"]
+}

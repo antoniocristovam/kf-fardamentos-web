@@ -1,0 +1,19 @@
+var _g;
+function _extends() { _extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+import * as React from "react";
+const SvgMl = props => /*#__PURE__*/React.createElement("svg", _extends({
+  xmlns: "http://www.w3.org/2000/svg",
+  viewBox: "0 0 512 512"
+}, props), _g || (_g = /*#__PURE__*/React.createElement("g", {
+  fillRule: "evenodd"
+}, /*#__PURE__*/React.createElement("path", {
+  fill: "red",
+  d: "M340.6 0H512v512H340.6z"
+}), /*#__PURE__*/React.createElement("path", {
+  fill: "#009a00",
+  d: "M0 0h170.3v512H0z"
+}), /*#__PURE__*/React.createElement("path", {
+  fill: "#ff0",
+  d: "M170.3 0h171.2v512H170.3z"
+}))));
+export default SvgMl;
