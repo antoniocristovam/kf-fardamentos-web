@@ -4,7 +4,7 @@ import { PageWrapper } from 'presentation/app/components/page-wrapper';
 import React from 'react';
 import { Card } from 'reactstrap';
 
-const EmployeeView = () => {
+const EmployeeListView = () => {
   const columns = [
     {
       name: 'Title',
@@ -56,4 +56,4 @@ const EmployeeView = () => {
   );
 };
 
-export default EmployeeView;
+export default EmployeeListView;

@@ -1,8 +1,8 @@
 import React from 'react';
 import EmployeeView from '../employeeList/view';
 
-const EmployeeList = () => {
+const EmployeeListIndex = () => {
   return <EmployeeView />;
 };
 
-export default EmployeeList;
+export default EmployeeListIndex;
