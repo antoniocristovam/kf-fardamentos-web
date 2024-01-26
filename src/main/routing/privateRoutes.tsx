@@ -5,6 +5,7 @@ import RequestIndex from 'presentation/app/modules/requested/pages';
 import { Navigate } from 'react-router-dom';
 
 import { useAuth } from '../../presentation/app/hooks/useAuth';
+import EmployeeFormIndex from 'presentation/app/modules/employee/pages/employeeForm';
 
 export const PrivateRoutes = (props: any) => {
   const { currentUser } = useAuth();
@@ -42,6 +43,11 @@ const privateRoutes = [
     path: '/funcionario',
     exact: true,
     component: <EmployeeListIndex />,
+  },
+  {
+    path: '/funcionario/novo',
+    exact: true,
+    component: <EmployeeFormIndex />,
   },
 
   { path: '*', component: <Navigate to="/dashboard" /> },

@@ -2,9 +2,14 @@ import { DataTable } from 'presentation/app/components/datatable';
 import { FloatButton } from 'presentation/app/components/floatButton';
 import { PageWrapper } from 'presentation/app/components/page-wrapper';
 import React from 'react';
+import { NavigateFunction } from 'react-router-dom';
 import { Card } from 'reactstrap';
 
-const EmployeeListView = () => {
+interface IProps {
+  navigate: NavigateFunction;
+}
+
+const EmployeeListView = ({ navigate }: IProps) => {
   const columns = [
     {
       name: 'Title',
@@ -31,7 +36,7 @@ const EmployeeListView = () => {
 
   return (
     <PageWrapper title="Funcionários">
-      <FloatButton />
+      <FloatButton handleButton={() => navigate('/funcionario/novo')} />
       <Card>
         <DataTable
           columns={columns}
