@@ -1,22 +1,27 @@
 import HeaderContainer from 'presentation/app/components/header-container';
 import BreadCrumb from 'presentation/config/partials/Common/BreadCrumb';
 import React from 'react';
-import {} from 'react-router-dom';
+import { NavigateFunction } from 'react-router-dom';
+import ReactSelect from 'react-select';
 import {
-  Button,
-  Card,
-  CardBody,
-  CardFooter,
-  CardHeader,
+  Row,
   Col,
-  Container,
+  Card,
   Form,
   Input,
   Label,
-  Row,
+  Button,
+  CardBody,
+  Container,
+  CardFooter,
+  CardHeader,
 } from 'reactstrap';
 
-const EmployeeFormView = () => {
+interface IProps {
+  navigate: NavigateFunction;
+}
+
+const EmployeeFormView = ({ navigate }: IProps) => {
   return (
     <React.Fragment>
       <div className="page-content">
@@ -26,24 +31,17 @@ const EmployeeFormView = () => {
         <Card>
           <CardHeader>
             <h5 className="fs-17 m-0">
-              {/* {id ? 'Editar Funcionário' : 'Novo Unidade'} */}
+              {/* {id ? 'Editar Funcionário' : 'Novo Funcionário'} */}
               Novo Funcionário
             </h5>
           </CardHeader>
-          <Form
-          // autoComplete="off"
-          // onSubmit={(e) => {
-          //   e.preventDefault();
-          //   validation.handleSubmit();
-          //   return false;
-          // }}
-          >
+          <Form>
             <CardBody className="pb-0">
               <HeaderContainer name={'DADOS PRINCIPAIS'} />
             </CardBody>
-            <CardBody className="pb-0">
+            <CardBody className="py-0">
               <Row>
-                <Col md={4}>
+                <Col md={5}>
                   <Label htmlFor="nane" className="form-label ">
                     Nome
                   </Label>
@@ -52,20 +50,9 @@ const EmployeeFormView = () => {
                     type="text"
                     placeholder="Nome"
                     className="form-control"
-                    // value={validation.values.cnes}
-                    // onBlur={validation.handleBlur}
-                    // onChange={validation.handleChange}
-                    // invalid={
-                    //   !!(validation.touched.cnes && validation.errors.cnes)
-                    // }
                   />
-                  {/* {validation.touched.cnes && validation.errors.cnes ? (
-                    <FormFeedback type="invalid">
-                      {validation.errors.cnes}
-                    </FormFeedback>
-                  ) : null} */}
                 </Col>
-                <Col md={4}>
+                <Col md={3}>
                   <Label htmlFor="nome" className="form-label">
                     CPF
                   </Label>
@@ -74,40 +61,37 @@ const EmployeeFormView = () => {
                     placeholder="CPF"
                     type="text"
                     className="form-control"
-                    // value={validation.values.nome}
-                    // onBlur={validation.handleBlur}
-                    // onChange={validation.handleChange}
-                    // invalid={
-                    //   !!(validation.touched.nome && validation.errors.nome)
-                    // }
                   />
-                  {/* {validation.touched.nome && validation.errors.nome ? (
-                    <FormFeedback type="invalid">
-                      {validation.errors.nome}
-                    </FormFeedback>
-                  ) : null} */}
                 </Col>
                 <Col md={4}>
-                  <Label htmlFor="email" className="form-label">
-                    Email
+                  <Label htmlFor="cargo" className="form-label">
+                    Cargo
+                  </Label>
+                  <ReactSelect />
+                </Col>
+              </Row>
+              <Row className="mt-3">
+                <Col md={3}>
+                  <Label htmlFor="password" className="form-label">
+                    Senha
                   </Label>
                   <Input
-                    name="email"
-                    placeholder="Email"
-                    type="text"
+                    name="password"
+                    placeholder="Senha"
+                    type="password"
                     className="form-control"
-                    // value={validation.values.nome}
-                    // onBlur={validation.handleBlur}
-                    // onChange={validation.handleChange}
-                    // invalid={
-                    //   !!(validation.touched.nome && validation.errors.nome)
-                    // }
                   />
-                  {/* {validation.touched.nome && validation.errors.nome ? (
-                    <FormFeedback type="invalid">
-                      {validation.errors.nome}
-                    </FormFeedback>
-                  ) : null} */}
+                </Col>
+                <Col md={3}>
+                  <Label htmlFor="password" className="form-label">
+                    Confirmar senha
+                  </Label>
+                  <Input
+                    name="password"
+                    placeholder="Confirmar senha"
+                    type="password"
+                    className="form-control"
+                  />
                 </Col>
               </Row>
             </CardBody>
@@ -115,9 +99,10 @@ const EmployeeFormView = () => {
             <CardBody className="pt-4 pb-0">
               <HeaderContainer name={'CONTATOS'} />
             </CardBody>
-            <CardBody>
+
+            <CardBody className="pt-0">
               <Row>
-                <Col md={6}>
+                <Col md={3}>
                   <Label htmlFor="numberAddress" className="form-label ">
                     Email
                   </Label>
@@ -126,9 +111,17 @@ const EmployeeFormView = () => {
                     type="email"
                     placeholder="Email"
                     className="form-control"
-                    // value={validation.values.email}
-                    // onBlur={validation.handleBlur}
-                    // onChange={validation.handleChange}
+                  />
+                </Col>
+                <Col md={3}>
+                  <Label htmlFor="numberAddress" className="form-label ">
+                    Telefone
+                  </Label>
+                  <Input
+                    name="email"
+                    type="email"
+                    placeholder="Telefone"
+                    className="form-control"
                   />
                 </Col>
               </Row>
@@ -141,7 +134,7 @@ const EmployeeFormView = () => {
                     <Button
                       color="transparent"
                       className="btn btn-link me-2 text-decoration-underline"
-                      // onClick={() => navigate('/unidades')}
+                      onClick={() => navigate('/funcionario')}
                     >
                       Cancelar
                     </Button>

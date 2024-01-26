@@ -15,7 +15,7 @@ interface IProps {
 
 const ClientView = ({ clientsList, navigate }: IProps) => {
   return (
-    <PageWrapper title="Clientes">
+    <PageWrapper title="Listagem de clientes">
       <FloatButton handleButton={() => navigate('/cliente/novo')} />
       <Card>
         <DataTable
