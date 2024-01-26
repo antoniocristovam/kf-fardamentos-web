@@ -6,6 +6,7 @@ import { Navigate } from 'react-router-dom';
 
 import { useAuth } from '../../presentation/app/hooks/useAuth';
 import EmployeeFormIndex from 'presentation/app/modules/employee/pages/employeeForm';
+import ClientFormIndex from 'presentation/app/modules/client/pages/clientForm';
 
 export const PrivateRoutes = (props: any) => {
   const { currentUser } = useAuth();
@@ -36,6 +37,11 @@ const privateRoutes = [
     path: '/cliente',
     exact: true,
     component: <MakeClients />,
+  },
+  {
+    path: '/cliente/novo',
+    exact: true,
+    component: <ClientFormIndex />,
   },
 
   // Funcionário

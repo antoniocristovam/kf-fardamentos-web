@@ -3,20 +3,18 @@ import { useAuth } from 'presentation/app/hooks/useAuth';
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { useClients } from '../hook/useClients';
-import ClientView from './view';
+import { useClients } from '../../hook/useClients';
+import ClientView from '../clientList/view';
 
 interface IProps {
   clients: IClients;
 }
 
-const ClientIndex = ({ clients }: IProps) => {
+const ClientListIndex = ({ clients }: IProps) => {
   const { currentUser } = useAuth();
 
   const { requestGetAllClients, clientsList } = useClients({ clients });
   const navigate = useNavigate();
-
-  console.log(currentUser?.token);
 
   useEffect(() => {
     requestGetAllClients({
@@ -33,4 +31,4 @@ const ClientIndex = ({ clients }: IProps) => {
   return <ClientView navigate={navigate} clientsList={clientsList} />;
 };
 
-export default ClientIndex;
+export default ClientListIndex;

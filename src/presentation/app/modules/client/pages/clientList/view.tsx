@@ -6,7 +6,7 @@ import React from 'react';
 import { NavigateFunction } from 'react-router-dom';
 import { Card } from 'reactstrap';
 
-import { makeColumnsClients } from '../common/columnsTable';
+import { makeColumnsClients } from '../../common/columnsTable';
 
 interface IProps {
   clientsList: ClientsModel;
@@ -16,7 +16,7 @@ interface IProps {
 const ClientView = ({ clientsList, navigate }: IProps) => {
   return (
     <PageWrapper title="Clientes">
-      <FloatButton />
+      <FloatButton handleButton={() => navigate('/cliente/novo')} />
       <Card>
         <DataTable
           columns={makeColumnsClients()}
