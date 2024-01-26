@@ -1,6 +1,6 @@
 import { MakeClients } from 'main/factories/modules/clients/clients-factory';
 import DashboardIndex from 'presentation/app/modules/dashboard/pages';
-import EmployeeIndex from 'presentation/app/modules/employee/pages';
+import EmployeeList from 'presentation/app/modules/employee/pages/employeeList';
 import RequestIndex from 'presentation/app/modules/requested/pages';
 import { Navigate } from 'react-router-dom';
 
@@ -41,7 +41,7 @@ const privateRoutes = [
   {
     path: '/funcionario',
     exact: true,
-    component: <EmployeeIndex />,
+    component: <EmployeeList />,
   },
 
   { path: '*', component: <Navigate to="/dashboard" /> },
