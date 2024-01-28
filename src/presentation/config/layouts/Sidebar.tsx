@@ -61,7 +61,7 @@ const Sidebar = ({ layoutType }: any) => {
               <img src={logoSm} alt="" height="35" />
             </span>
             <span className="logo-lg">
-              <img className="mt-3" src={logoLight} alt="" height="60" />
+              <img className="mt-3" src={logoLight} alt="" height="65" />
             </span>
           </Link>
           <button
