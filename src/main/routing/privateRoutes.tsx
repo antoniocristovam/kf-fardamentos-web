@@ -43,6 +43,11 @@ const privateRoutes = [
     exact: true,
     component: <ClientFormIndex />,
   },
+  {
+    path: '/cliente/:id',
+    exact: true,
+    component: <ClientFormIndex />,
+  },
 
   // Funcionário
   {
