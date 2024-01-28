@@ -24,10 +24,6 @@ const ClientListIndex = ({ clients }: IProps) => {
     });
   }, []);
 
-  // const clientsIdList = (clientsList?.content || []).map((idClients) => ({
-  //   id: idClients.cpf_cnpj,
-  // }));
-
   return <ClientView navigate={navigate} clientsList={clientsList} />;
 };
 

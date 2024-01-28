@@ -41,10 +41,10 @@ const EmployeeListView = ({ navigate }: IProps) => {
           columns={columns}
           data={data}
           title={'Clientes'}
-          loading={false}
+          loading={true}
           actions={[
             {
-              id: 1,
+              cpf_cnpj: 1,
               name: 'edit',
               label: 'Editar',
               icon: 'ri-edit-line',

@@ -18,42 +18,23 @@ const ClientView = ({ clientsList, navigate }: IProps) => {
     <PageWrapper title="Listagem de clientes">
       <FloatButton handleButton={() => navigate('/cliente/novo')} />
       <Card>
-        {/* <DataTable
-          columns={makeColumnsClients()}
-          data={clientsList?.content || []}
-          title={'Clientes'}
-          loading={false}
-          actions={[
-            {
-              id: 1,
-              name: 'edit',
-              label: 'Editar',
-              icon: 'ri-edit-line',
-              classNameColorIcon: 'primary',
-              onPress: (cellProps) => navigate(`/pacientes/${cellProps.id}`),
-            },
-          ]}
-          canSearch={false}
-          keysSearch={[]}
-        /> */}
         <DataTable
           columns={makeColumnsClients()}
           data={clientsList?.content || []}
           actions={[
             {
-              id: 1,
+              cpf_cnpj: 1,
               name: 'edit',
               label: 'Editar',
               onPress: (cellProps) => {
                 navigate(`/cliente/${cellProps.cpf_cnpj}`);
-                console.log(cellProps.cpf_cnpj);
               },
               icon: 'ri-pencil-fill',
               classNameColorIcon: 'primary',
             },
           ]}
           title={''}
-          loading={false}
+          loading={true}
           // handleDelete={(id) => handleDelete(id)}
           canSearch={false}
         />

@@ -211,7 +211,7 @@ const ClientFormView = ({ navigate }: IProps) => {
                     <Button
                       color="transparent"
                       className="btn btn-link me-2 text-decoration-underline"
-                      onClick={() => navigate('/funcionario')}
+                      onClick={() => navigate('/cliente')}
                     >
                       Cancelar
                     </Button>

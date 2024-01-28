@@ -7,7 +7,7 @@ import { Col, Row } from 'reactstrap';
 import { ModalDelete } from '../modal-delete';
 
 interface Action {
-  id: number;
+  cpf_cnpj: number;
   label: string;
   name: string;
   icon: string;
@@ -21,7 +21,7 @@ interface dataTableIProps {
   columns: object[];
   loading: boolean;
   actions: Action[];
-  handleDelete?: (id: any) => void;
+  handleDelete?: (cpf_cnpj: any) => void;
   canSearch: boolean;
   keysSearch?: string[];
 }
@@ -43,8 +43,8 @@ export const DataTable = ({
   const [modal_delete, setModal_delete] = useState(false);
 
   const toggleModal = useCallback(
-    (id: string) => {
-      setRegisterId(id);
+    (cpf_cnpj: string) => {
+      setRegisterId(cpf_cnpj);
       setModal_delete(!modal_delete);
     },
     [modal_delete],
@@ -55,7 +55,7 @@ export const DataTable = ({
       let columns = (actions || []).map((item) => {
         return (
           <li
-            key={item.id}
+            key={item.cpf_cnpj}
             title={item.label}
             onClick={() => {
               item.onPress(cellProps);
@@ -141,7 +141,7 @@ export const DataTable = ({
         {...rest}
         pagination
         onRowMouseEnter={(row: any) => {
-          setIsHover(row.id ? row.id : row.hashid);
+          setIsHover(row.cpf_cnpj ? row.cpf_cnpj : row.hashid);
         }}
         onRowMouseLeave={() => {
           setIsHover(0);
@@ -161,7 +161,7 @@ export const DataTable = ({
                   className="list-inline hstack gap-2 mb-0 "
                   style={{
                     display:
-                      isHover === (cellProps.id || cellProps.hashid)
+                      isHover === (cellProps.cpf_cnpj || cellProps.hashid)
                         ? 'flex'
                         : 'none',
                     cursor: 'pointer',
@@ -172,7 +172,7 @@ export const DataTable = ({
                     <li
                       title="Deletar"
                       onClick={() => {
-                        toggleModal(cellProps.id);
+                        toggleModal(cellProps.cpf_cnpj);
                       }}
                     >
                       <i className={`las la-trash fs-20 text-danger`}></i>
