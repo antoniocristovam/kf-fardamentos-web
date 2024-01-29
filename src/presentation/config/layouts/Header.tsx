@@ -11,7 +11,6 @@ import logoLight from '../assets/images/logo-light.png';
 import logoSm from '../assets/images/logo-sm.png';
 import FullScreenDropdown from '../partials/Common/FullScreenDropdown';
 import LightDark from '../partials/Common/LightDark';
-import NotificationDropdown from '../partials/Common/NotificationDropdown';
 import ProfileDropdown from '../partials/Common/ProfileDropdown';
 import SearchOption from '../partials/Common/SearchOption';
 
@@ -160,9 +159,6 @@ const Header = ({ onChangeLayoutMode, layoutModeType, headerClass }: any) => {
                 layoutMode={layoutModeType}
                 onChangeLayoutMode={onChangeLayoutMode}
               />
-
-              {/* NotificationDropdown */}
-              <NotificationDropdown />
 
               {/* ProfileDropdown */}
               <ProfileDropdown />

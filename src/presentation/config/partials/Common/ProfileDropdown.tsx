@@ -14,7 +14,7 @@ import { useAuth } from '../../../../presentation/app/hooks/useAuth';
 import avatar1 from '../../assets/images/users/avatar-1.jpg';
 
 const ProfileDropdown = () => {
-  const { currentUser } = useAuth();
+  const { currentUser, logout } = useAuth();
 
   //Dropdown Toggle
   const [isProfileDropdown, setIsProfileDropdown] = useState(false);
@@ -61,7 +61,7 @@ const ProfileDropdown = () => {
             </Link>
           </DropdownItem>
           <DropdownItem className="p-0">
-            <Link to="/logout" className="dropdown-item">
+            <Link onClick={logout} to="/login" className="dropdown-item">
               <i className="mdi mdi-logout text-muted fs-16 align-middle me-1"></i>{' '}
               <span className="align-middle" data-key="t-logout">
                 Sair
