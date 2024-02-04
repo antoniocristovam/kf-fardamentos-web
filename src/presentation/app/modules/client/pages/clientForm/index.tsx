@@ -19,7 +19,7 @@ const ClientFormIndex = ({ clients }: IProps) => {
   const navigate = useNavigate();
   const { id } = useParams();
   const { currentUser } = useAuth();
-  const { requestGetClientsById } = useClients({ clients });
+  const { requestGetClientsById, clientsById } = useClients({ clients });
 
   // State
   const [currentAddress, setCurrentAddress] = useState(0);
@@ -27,12 +27,12 @@ const ClientFormIndex = ({ clients }: IProps) => {
   const validation = useFormik({
     enableReinitialize: true,
     initialValues: {
-      name: '',
-      email: '',
-      cpf_cnpj: '',
-      firstPhoneNumber: '',
-      secondPhoneNumber: '',
-      thirdPhoneNumber: '',
+      name: clientsById ? clientsById.name : '',
+      email: clientsById ? clientsById.email : '',
+      cpf_cnpj: clientsById ? clientsById.cpf_cnpj : '',
+      thirdPhoneNumber: clientsById ? clientsById.thirdPhoneNumber : '',
+      firstPhoneNumber: clientsById ? clientsById.firstPhoneNumber : '',
+      secondPhoneNumber: clientsById ? clientsById.secondPhoneNumber : '',
       addresses: [
         {
           city: '',

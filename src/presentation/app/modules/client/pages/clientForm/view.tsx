@@ -112,7 +112,7 @@ const ClientFormView = ({
                   </Label>
                   <Input
                     name="firstPhoneNumber"
-                    type="number"
+                    type="text"
                     placeholder="Telefone 1"
                     className="form-control"
                     onBlur={validation.handleBlur}
