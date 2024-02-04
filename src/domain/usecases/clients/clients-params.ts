@@ -3,3 +3,8 @@ export type ClientsParams = {
   size: string;
   userToken: string;
 };
+
+export type ClientsByIdParams = {
+  id: string;
+  userToken: string;
+};
