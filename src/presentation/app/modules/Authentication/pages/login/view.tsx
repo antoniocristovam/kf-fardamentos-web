@@ -6,20 +6,19 @@ import { Link } from 'react-router-dom';
 import {
   Col,
   Row,
+  Card,
   Form,
   Label,
   Input,
   Button,
-  FormFeedback,
-  Card,
   CardBody,
   Container,
+  FormFeedback,
 } from 'reactstrap';
 
 // Assets
 import AuthPageHeading from '../../components/authPageHeading';
 import AuthWrapper from '../../components/authWrapper/AuthWrapper';
-import { useAuth } from 'presentation/app/hooks/useAuth';
 
 interface IPropsAuthentication {
   error: boolean;
