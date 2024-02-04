@@ -1,5 +1,8 @@
 import { IClients } from 'domain/usecases';
-import { ClientsParams } from 'domain/usecases/clients/clients-params';
+import {
+  ClientsByIdParams,
+  ClientsParams,
+} from 'domain/usecases/clients/clients-params';
 import { useAppSelector } from 'presentation/config/hooks/useRedux';
 import { getClients } from 'presentation/config/store/client/clientSlice';
 import { useCallback } from 'react';
@@ -31,8 +34,23 @@ export const useClients = ({ clients }: IProps) => {
       });
   }, []);
 
+  const requestGetClientsById = useCallback((params: ClientsByIdParams) => {
+    clients
+      .getClientsById({
+        id: params.id,
+        userToken: params.userToken,
+      })
+      .then((res) => {
+        // dispatch(getClients(res));
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
   return {
     clientsList,
     requestGetAllClients,
+    requestGetClientsById,
   };
 };
