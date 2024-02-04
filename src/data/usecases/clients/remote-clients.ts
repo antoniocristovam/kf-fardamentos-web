@@ -40,7 +40,7 @@ export class RemoteClients implements IClients {
 
   async getClientsById(params: ClientsByIdParams): Promise<ClientsByIdModel> {
     const httpResponse = await this.httpClient.request({
-      url: this.url + `${params.id}`,
+      url: this.url + `/${params.id}`,
       headers: {
         Authorization: `Bearer ${params?.userToken}`,
       },

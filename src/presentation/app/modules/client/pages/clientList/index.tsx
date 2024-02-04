@@ -14,8 +14,10 @@ const ClientListIndex = ({ clients }: IProps) => {
   const { currentUser } = useAuth();
 
   const { requestGetAllClients, clientsList } = useClients({ clients });
+  // Hooks
   const navigate = useNavigate();
 
+  // useEffect
   useEffect(() => {
     requestGetAllClients({
       page: '1',
