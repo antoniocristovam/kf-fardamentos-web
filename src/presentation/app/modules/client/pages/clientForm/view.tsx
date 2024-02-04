@@ -1,26 +1,37 @@
+import { FormikValues } from 'formik';
 import HeaderContainer from 'presentation/app/components/header-container';
 import BreadCrumb from 'presentation/config/partials/Common/BreadCrumb';
 import React from 'react';
 import { NavigateFunction } from 'react-router-dom';
 import {
-  Button,
-  Card,
-  CardBody,
-  CardFooter,
-  CardHeader,
   Col,
-  Container,
+  Row,
+  Card,
   Form,
   Input,
   Label,
-  Row,
+  Button,
+  CardBody,
+  Container,
+  CardFooter,
+  CardHeader,
 } from 'reactstrap';
 
 interface IProps {
+  id: string;
+  currentAddress: number;
+  validation: FormikValues;
   navigate: NavigateFunction;
+  setCurrentAddress: (index: number) => void;
 }
 
-const ClientFormView = ({ navigate }: IProps) => {
+const ClientFormView = ({
+  navigate,
+  validation,
+  id,
+  currentAddress,
+  setCurrentAddress,
+}: IProps) => {
   return (
     <React.Fragment>
       <div className="page-content">
@@ -30,18 +41,24 @@ const ClientFormView = ({ navigate }: IProps) => {
         <Card>
           <CardHeader>
             <h5 className="fs-17 m-0">
-              {/* {id ? 'Editar Funcionário' : 'Novo Funcionário'} */}
-              Novo Cliente
+              {id ? 'Editar Cliente' : 'Novo Cliente'}
             </h5>
           </CardHeader>
-          <Form>
+          <Form
+            autoComplete="off"
+            onSubmit={(e) => {
+              e.preventDefault();
+              validation.handleSubmit();
+              return false;
+            }}
+          >
             <CardBody className="pb-0">
               <HeaderContainer name={'DADOS PRINCIPAIS DO CLIENTE'} />
             </CardBody>
             <CardBody className="py-0">
               <Row>
                 <Col md={6}>
-                  <Label htmlFor="nane" className="form-label ">
+                  <Label htmlFor="name" className="form-label ">
                     Nome
                   </Label>
                   <Input
@@ -49,21 +66,27 @@ const ClientFormView = ({ navigate }: IProps) => {
                     type="text"
                     placeholder="Nome"
                     className="form-control"
+                    value={validation.values.name}
+                    onBlur={validation.handleBlur}
+                    onChange={validation.handleChange}
                   />
                 </Col>
                 <Col md={3}>
-                  <Label htmlFor="nome" className="form-label">
+                  <Label htmlFor="cpf_cnpj" className="form-label">
                     CPF ou CNPJ
                   </Label>
                   <Input
-                    name="CPF"
-                    placeholder="CPF ou CNPJ"
                     type="text"
+                    name="cpf_cnpj"
+                    placeholder="CPF ou CNPJ"
                     className="form-control"
+                    value={validation.values.cpf_cnpj}
+                    onBlur={validation.handleBlur}
+                    onChange={validation.handleChange}
                   />
                 </Col>
                 <Col md={3}>
-                  <Label htmlFor="numberAddress" className="form-label ">
+                  <Label htmlFor="email" className="form-label ">
                     Email
                   </Label>
                   <Input
@@ -71,6 +94,9 @@ const ClientFormView = ({ navigate }: IProps) => {
                     type="email"
                     placeholder="Email"
                     className="form-control"
+                    onBlur={validation.handleBlur}
+                    value={validation.values.email}
+                    onChange={validation.handleChange}
                   />
                 </Col>
               </Row>
@@ -81,36 +107,45 @@ const ClientFormView = ({ navigate }: IProps) => {
             <CardBody className="pt-0">
               <Row>
                 <Col md={4}>
-                  <Label htmlFor="numberAddress" className="form-label ">
+                  <Label htmlFor="firstPhoneNumber" className="form-label ">
                     Telefone 1
                   </Label>
                   <Input
-                    name="email"
-                    type="email"
+                    name="firstPhoneNumber"
+                    type="number"
                     placeholder="Telefone 1"
                     className="form-control"
+                    onBlur={validation.handleBlur}
+                    value={validation.values.firstPhoneNumber}
+                    onChange={validation.handleChange}
                   />
                 </Col>
                 <Col md={4}>
-                  <Label htmlFor="numberAddress" className="form-label ">
+                  <Label htmlFor="secondPhoneNumber" className="form-label ">
                     Telefone 2
                   </Label>
                   <Input
-                    name="email"
-                    type="email"
+                    type="number"
+                    name="secondPhoneNumber"
                     placeholder="Telefone 2"
                     className="form-control"
+                    onBlur={validation.handleBlur}
+                    onChange={validation.handleChange}
+                    value={validation.values.secondPhoneNumber}
                   />
                 </Col>
                 <Col md={4}>
-                  <Label htmlFor="numberAddress" className="form-label ">
+                  <Label htmlFor="thirdPhoneNumber" className="form-label ">
                     Telefone 3
                   </Label>
                   <Input
-                    name="email"
-                    type="email"
+                    type="number"
+                    name="thirdPhoneNumber"
                     placeholder="Telefone 3"
                     className="form-control"
+                    onBlur={validation.handleBlur}
+                    onChange={validation.handleChange}
+                    value={validation.values.thirdPhoneNumber}
                   />
                 </Col>
               </Row>
@@ -123,82 +158,110 @@ const ClientFormView = ({ navigate }: IProps) => {
             <CardBody className="pt-0">
               <Row>
                 <Col md={3}>
-                  <Label htmlFor="numberAddress" className="form-label ">
+                  <Label htmlFor="postalCode" className="form-label ">
                     CEP
                   </Label>
                   <Input
-                    name="email"
+                    name="postalCode"
                     type="number"
                     placeholder="CEP"
                     className="form-control"
+                    onBlur={validation.handleBlur}
+                    onChange={validation.handleChange}
+                    value={
+                      validation.values.addresses[currentAddress].postalCode
+                    }
                   />
                 </Col>
                 <Col md={3}>
-                  <Label htmlFor="numberAddress" className="form-label ">
+                  <Label htmlFor="city" className="form-label ">
                     Cidade
                   </Label>
                   <Input
-                    name="email"
+                    name="city"
                     type="text"
                     placeholder="Cidade"
                     className="form-control"
+                    onBlur={validation.handleBlur}
+                    value={validation.values.addresses[currentAddress].city}
+                    onChange={validation.handleChange}
                   />
                 </Col>
                 <Col md={3}>
-                  <Label htmlFor="numberAddress" className="form-label ">
+                  <Label htmlFor="street" className="form-label ">
                     Rua
                   </Label>
                   <Input
-                    name="email"
+                    name="street"
                     type="text"
                     placeholder="Rua"
                     className="form-control"
+                    onBlur={validation.handleBlur}
+                    onChange={validation.handleChange}
+                    value={validation.values.addresses[currentAddress].street}
                   />
                 </Col>
                 <Col md={3}>
-                  <Label htmlFor="numberAddress" className="form-label ">
+                  <Label htmlFor="neighborhood" className="form-label ">
                     Bairro
                   </Label>
                   <Input
-                    name="email"
+                    name="neighborhood"
                     type="text"
                     placeholder="Bairro"
                     className="form-control"
+                    onBlur={validation.handleBlur}
+                    onChange={validation.handleChange}
+                    value={
+                      validation.values.addresses[currentAddress].neighborhood
+                    }
                   />
                 </Col>
               </Row>
               <Row className="mt-3">
                 <Col md={2}>
-                  <Label htmlFor="numberAddress" className="form-label ">
+                  <Label htmlFor="state" className="form-label ">
                     UF
                   </Label>
                   <Input
-                    name="email"
+                    name="state"
                     type="text"
                     placeholder="UF"
                     className="form-control"
+                    onBlur={validation.handleBlur}
+                    onChange={validation.handleChange}
+                    value={validation.values.addresses[currentAddress].state}
                   />
                 </Col>
                 <Col md={2}>
-                  <Label htmlFor="numberAddress" className="form-label ">
+                  <Label htmlFor="number" className="form-label ">
                     Número
                   </Label>
                   <Input
-                    name="email"
+                    name="number"
                     type="text"
                     placeholder="Número"
                     className="form-control"
+                    onBlur={validation.handleBlur}
+                    onChange={validation.handleChange}
+                    value={validation.values.addresses[currentAddress].number}
                   />
                 </Col>
                 <Col md={3}>
-                  <Label htmlFor="numberAddress" className="form-label ">
+                  <Label htmlFor="aditionalInformation" className="form-label ">
                     Ponto de referência
                   </Label>
                   <Input
-                    name="email"
                     type="text"
-                    placeholder="Ponto de referência"
                     className="form-control"
+                    name="aditionalInformation"
+                    onBlur={validation.handleBlur}
+                    placeholder="Ponto de referência"
+                    onChange={validation.handleChange}
+                    value={
+                      validation.values.addresses[currentAddress]
+                        .aditionalInformation
+                    }
                   />
                 </Col>
               </Row>
