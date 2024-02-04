@@ -72,6 +72,9 @@ export class RemoteClients implements IClients {
       method: 'post',
       url: this.url,
       body: params.valueToSubmit,
+      headers: {
+        Authorization: `Bearer ${params?.userToken}`,
+      },
     });
 
     switch (httpResponse.statusCode) {
