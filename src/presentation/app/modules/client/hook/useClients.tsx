@@ -4,7 +4,8 @@ import {
   ClientsParams,
 } from 'domain/usecases/clients/clients-params';
 import { useAppSelector } from 'presentation/config/hooks/useRedux';
-import { getClients } from 'presentation/config/store/client/clientSlice';
+import { getClientsById } from 'presentation/config/store/client/clientByIdSlice';
+import { getClients } from 'presentation/config/store/client/clientListSlice';
 import { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 
@@ -18,6 +19,7 @@ export const useClients = ({ clients }: IProps) => {
   const dispatch = useDispatch();
 
   const { clients: clientsList } = useAppSelector((state) => state.clients);
+  const { clientsById } = useAppSelector((state) => state.clientsById);
 
   const requestGetAllClients = useCallback((params: ClientsParams) => {
     clients
@@ -41,7 +43,7 @@ export const useClients = ({ clients }: IProps) => {
         userToken: params.userToken,
       })
       .then((res) => {
-        // dispatch(getClients(res));
+        dispatch(getClientsById(res));
       })
       .catch((err) => {
         console.log(err);
@@ -50,6 +52,7 @@ export const useClients = ({ clients }: IProps) => {
 
   return {
     clientsList,
+    clientsById,
     requestGetAllClients,
     requestGetClientsById,
   };

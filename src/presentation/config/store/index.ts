@@ -2,11 +2,13 @@ import { configureStore } from '@reduxjs/toolkit';
 
 // Slices
 import { LayoutSlice } from '../store-template/layouts/reducer';
-import { clientsSlice } from './client/clientSlice';
+import { clientsByIdSlice } from './client/clientByIdSlice';
+import { clientsListSlice } from './client/clientListSlice';
 export const store = configureStore({
   reducer: {
     Layout: LayoutSlice.reducer,
-    clients: clientsSlice.reducer,
+    clients: clientsListSlice.reducer,
+    clientsById: clientsByIdSlice.reducer,
   },
 });
 

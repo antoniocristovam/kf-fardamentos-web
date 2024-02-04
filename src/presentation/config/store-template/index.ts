@@ -1,14 +1,16 @@
 import { combineReducers } from 'redux';
 
 // Components
+import { clientsByIdSlice } from '../store/client/clientByIdSlice';
+import { clientsListSlice } from '../store/client/clientListSlice';
 import APIKeyReducer from './apiKey/reducer';
 import LayoutReducer from './layouts/reducer';
-import { clientsSlice } from '../store/client/clientSlice';
 
 const rootReducer = combineReducers({
   Layout: LayoutReducer,
   APIKey: APIKeyReducer,
-  clients: clientsSlice.reducer,
+  clients: clientsListSlice.reducer,
+  clientsById: clientsByIdSlice.reducer,
 });
 
 export { rootReducer };
