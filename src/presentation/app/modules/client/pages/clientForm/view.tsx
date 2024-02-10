@@ -273,13 +273,13 @@ const ClientFormView = ({
                   <div className="form-group d-flex justify-content-end align-items-center">
                     <Button
                       color="transparent"
-                      className="btn btn-link me-2 text-decoration-underline"
+                      className="btn btn-danger me-2"
                       onClick={() => navigate('/cliente')}
                     >
                       Cancelar
                     </Button>
                     <Button color="primary" type="submit">
-                      salvar
+                      Salvar
                     </Button>
                   </div>
                 </Col>

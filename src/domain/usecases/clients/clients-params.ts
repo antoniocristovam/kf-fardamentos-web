@@ -8,3 +8,8 @@ export type ClientsByIdParams = {
   id: string;
   userToken: string;
 };
+
+export type ClientsDeleteParams = {
+  id: string;
+  userToken: string;
+};

@@ -1,6 +1,7 @@
 import { ClientsByIdModel, ClientsModel } from 'domain/models';
 import {
   ClientsByIdParams,
+  ClientsDeleteParams,
   ClientsParams,
 } from 'domain/usecases/clients/clients-params';
 
@@ -53,6 +54,27 @@ export class RemoteClients implements IClients {
       case HttpStatusCode.notModified:
         return httpResponse.body;
       case HttpStatusCode.unauthorized:
+        throw new InvalidCredentialsError();
+      default:
+        throw new UnexpectedError();
+    }
+  }
+
+  async deleteClients(params: ClientsDeleteParams): Promise<void> {
+    console.log('oi', params);
+
+    const httpResponse = await this.httpClient.request({
+      url: `${this.url}/${params.id}`,
+      method: 'delete',
+      // headers: {
+      //   Authorization: `Bearer ${params?.userToken}`,
+      // },
+    });
+
+    switch (httpResponse.statusCode) {
+      case HttpStatusCode.ok:
+        return;
+      case HttpStatusCode.forbidden:
         throw new InvalidCredentialsError();
       default:
         throw new UnexpectedError();

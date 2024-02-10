@@ -1,6 +1,6 @@
 import { IClients } from 'domain/usecases';
 import { useAuth } from 'presentation/app/hooks/useAuth';
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { useClients } from '../../hook/useClients';
@@ -13,7 +13,8 @@ interface IProps {
 const ClientListIndex = ({ clients }: IProps) => {
   const { currentUser } = useAuth();
 
-  const { requestGetAllClients, clientsList } = useClients({ clients });
+  const { requestGetAllClients, clientsList, requestDeleteCliente } =
+    useClients({ clients });
   // Hooks
   const navigate = useNavigate();
 
@@ -26,7 +27,14 @@ const ClientListIndex = ({ clients }: IProps) => {
     });
   }, []);
 
-  return <ClientView navigate={navigate} clientsList={clientsList} />;
+  return (
+    <ClientView
+      navigate={navigate}
+      clientsList={clientsList}
+      currentUser={currentUser}
+      requestDeleteCliente={requestDeleteCliente}
+    />
+  );
 };
 
 export default ClientListIndex;

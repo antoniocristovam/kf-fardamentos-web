@@ -1,18 +1,27 @@
 import { ClientsModel } from 'domain/models';
+import { ClientsDeleteParams } from 'domain/usecases/clients/clients-params';
 import { DataTable } from 'presentation/app/components/datatable';
 import { FloatButton } from 'presentation/app/components/floatButton';
 import { PageWrapper } from 'presentation/app/components/page-wrapper';
+import { IUserModel } from 'presentation/app/hooks/useAuth';
 import { NavigateFunction } from 'react-router-dom';
 import { Card } from 'reactstrap';
 
 import { makeColumnsClients } from '../../common/columnsTable';
 
 interface IProps {
+  currentUser: IUserModel;
   clientsList: ClientsModel;
   navigate: NavigateFunction;
+  requestDeleteCliente: (params: ClientsDeleteParams) => void;
 }
 
-const ClientView = ({ clientsList, navigate }: IProps) => {
+const ClientView = ({
+  navigate,
+  clientsList,
+  currentUser,
+  requestDeleteCliente,
+}: IProps) => {
   return (
     <PageWrapper title="Listagem de clientes">
       <FloatButton handleButton={() => navigate('/cliente/novo')} />
@@ -34,8 +43,9 @@ const ClientView = ({ clientsList, navigate }: IProps) => {
           ]}
           title={''}
           loading={true}
-          // handleDelete={(id) => handleDelete(id)}
-          handleDelete={(id) => console.log('oi', id)}
+          handleDelete={(id) =>
+            requestDeleteCliente({ id: id, userToken: currentUser.token })
+          }
           canSearch={false}
         />
       </Card>
