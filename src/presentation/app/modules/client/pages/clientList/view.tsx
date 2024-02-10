@@ -35,6 +35,7 @@ const ClientView = ({ clientsList, navigate }: IProps) => {
           title={''}
           loading={true}
           // handleDelete={(id) => handleDelete(id)}
+          handleDelete={(id) => console.log('oi', id)}
           canSearch={false}
         />
       </Card>

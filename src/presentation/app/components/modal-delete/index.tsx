@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button, Col, Modal, CardBody, Row } from 'reactstrap';
-
+import Lottie from 'react-lottie';
+import animationTrash from '../../../../animation/animation-trash.json';
 interface IProps {
   isOpen: boolean;
   handleDelete: () => void;
@@ -8,6 +9,14 @@ interface IProps {
 }
 
 export const ModalDelete = ({ goBack, handleDelete, isOpen }: IProps) => {
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: animationTrash,
+    rendererSettings: {
+      preserveAspectRatio: 'xMidYMid slice',
+    },
+  };
   return (
     <Modal
       isOpen={isOpen}
@@ -21,11 +30,13 @@ export const ModalDelete = ({ goBack, handleDelete, isOpen }: IProps) => {
       modalClassName="zoomIn"
     >
       <Col lg={12}>
-        <CardBody className="p-5">
-          <Col className="text-center mb-2"></Col>
+        <CardBody className="p-3">
+          <Col className="text-center mb-2">
+            <Lottie options={defaultOptions} height={150} width={150} />
+          </Col>
 
           <Row className="text-center">
-            <h4 className="mb-3">Deseja excluir?</h4>
+            <h5 className="mb-3">Você tem certeza que deseja excluir?</h5>
             <p className="text-muted mb-4">Tem certeza que deseja excluir?</p>
           </Row>
 
