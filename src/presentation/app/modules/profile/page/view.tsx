@@ -1,7 +1,6 @@
 import classnames from 'classnames';
 import { IUserModel } from 'presentation/app/hooks/useAuth';
 import React, { useState } from 'react';
-import Flatpickr from 'react-flatpickr';
 import { Link } from 'react-router-dom';
 import {
   Col,
@@ -22,7 +21,6 @@ import {
 } from 'reactstrap';
 
 //import images
-import avatar1 from '../../../../config/assets/images/logo-dark.png';
 import progileBg from '../../../../config/assets/images/background-fk-profile.jpg';
 
 interface IProps {
@@ -30,10 +28,9 @@ interface IProps {
 }
 
 const ProfileView = ({ currentUser }: IProps) => {
-  document.title =
-    'Profile Settings | Velzon - React Admin & Dashboard Template';
+  document.title = 'KF - Fardamentos | Perfil';
 
-  const [activeTab, setActiveTab] = useState<any>('1');
+  const [activeTab, setActiveTab] = useState<string>('1');
 
   const tabChange = (tab: any) => {
     if (activeTab !== tab) setActiveTab(tab);
