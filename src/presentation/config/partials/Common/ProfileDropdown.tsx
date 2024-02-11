@@ -48,7 +48,7 @@ const ProfileDropdown = () => {
         <DropdownMenu className="dropdown-menu-end">
           <h6 className="dropdown-header">Olá {currentUser?.user?.name}!</h6>
           <DropdownItem className="p-0">
-            <Link to="/profile" className="dropdown-item">
+            <Link to="/perfil" className="dropdown-item">
               <i className="mdi mdi-account-circle text-muted fs-16 align-middle me-1"></i>
               <span className="align-middle">Perfil</span>
             </Link>
