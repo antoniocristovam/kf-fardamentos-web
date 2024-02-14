@@ -1,4 +1,4 @@
-# Projeto aplicado a clean-architecture
+# Projeto KF - fardamentos WEB
 
 ## Instalação
 
