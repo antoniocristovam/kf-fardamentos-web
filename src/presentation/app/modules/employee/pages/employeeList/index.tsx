@@ -1,5 +1,4 @@
 import { IEmployee } from 'domain/usecases';
-import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import EmployeeView from '../employeeList/view';

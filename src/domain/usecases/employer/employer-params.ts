@@ -1,15 +1,15 @@
-export type EmployerParams = {
+export type EmployeeParams = {
   page: string;
   size: string;
   userToken: string;
 };
 
-export type EmployersByIdParams = {
+export type EmployeeByIdParams = {
   id: string;
   userToken: string;
 };
 
-export type EmployerDeleteParams = {
+export type EmployeeDeleteParams = {
   id: string;
   userToken: string;
 };

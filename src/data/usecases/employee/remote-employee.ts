@@ -1,9 +1,9 @@
 import { EmployerByIdModel, EmployerModel } from 'domain/models';
 import { IEmployee } from 'domain/usecases/employer/employer';
 import {
-  EmployerParams,
-  EmployerDeleteParams,
-  EmployersByIdParams,
+  EmployeeParams,
+  EmployeeDeleteParams,
+  EmployeeByIdParams,
 } from 'domain/usecases/employer/employer-params';
 
 import {
@@ -18,7 +18,7 @@ export class RemoteEmployee implements IEmployee {
     private readonly httpClient,
   ) {}
 
-  async getAllEmployee(params: EmployerParams): Promise<EmployerModel> {
+  async getAllEmployee(params: EmployeeParams): Promise<EmployerModel> {
     const httpResponse = await this.httpClient.request({
       url: this.url + `?page=${params.page}&size=${params.size}`,
       headers: {
@@ -40,7 +40,7 @@ export class RemoteEmployee implements IEmployee {
   }
 
   async getEmployeeById(
-    params: EmployersByIdParams,
+    params: EmployeeByIdParams,
   ): Promise<EmployerByIdModel> {
     const httpResponse = await this.httpClient.request({
       url: this.url + `/${params.id}`,
@@ -62,7 +62,7 @@ export class RemoteEmployee implements IEmployee {
     }
   }
 
-  async deleteEmployee(params: EmployerDeleteParams): Promise<void> {
+  async deleteEmployee(params: EmployeeDeleteParams): Promise<void> {
     const httpResponse = await this.httpClient.request({
       url: `${this.url}/${params.id}`,
       method: 'delete',

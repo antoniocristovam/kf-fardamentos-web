@@ -1,4 +1,5 @@
 // React
+import NonAuthLayout from 'presentation/config/layouts/NonAuthLayout';
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 
@@ -9,7 +10,6 @@ import VerticalLayout from '../../presentation/config/layouts/index';
 // Routes
 import { PrivateRoutes, privateRoutes } from './privateRoutes';
 import { publicRoutes } from './publicRoutes';
-import NonAuthLayout from 'presentation/config/layouts/NonAuthLayout';
 
 export const Router = () => {
   return (

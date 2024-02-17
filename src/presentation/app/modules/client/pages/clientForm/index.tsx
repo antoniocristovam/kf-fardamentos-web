@@ -15,14 +15,14 @@ interface IProps {
 }
 
 const ClientFormIndex = ({ clients }: IProps) => {
-  // Hook
-  const navigate = useNavigate();
-  const { id } = useParams();
-  const { currentUser } = useAuth();
-  const { requestGetClientsById, clientsById } = useClients({ clients });
-
   // State
   const [currentAddress, setCurrentAddress] = useState(0);
+
+  // Hooks
+  const { id } = useParams();
+  const navigate = useNavigate();
+  const { currentUser } = useAuth();
+  const { requestGetClientsById, clientsById } = useClients({ clients });
 
   const validation = useFormik({
     enableReinitialize: true,
@@ -79,10 +79,7 @@ const ClientFormIndex = ({ clients }: IProps) => {
     },
   });
 
-  console.log(validation.errors, validation.values);
-
   //useEffect
-
   if (id) {
     useEffect(() => {
       requestGetClientsById({ id: id, userToken: currentUser.token });

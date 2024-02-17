@@ -1,18 +1,18 @@
 import { EmployerByIdModel, EmployerModel } from 'domain/models';
 
 import {
-  EmployerParams,
-  EmployerDeleteParams,
-  EmployersByIdParams,
+  EmployeeParams,
+  EmployeeDeleteParams,
+  EmployeeByIdParams,
 } from './employer-params';
 
 export interface IEmployee {
   // Delete
-  deleteEmployee: (params: EmployerDeleteParams) => Promise<void>;
+  deleteEmployee: (params: EmployeeDeleteParams) => Promise<void>;
 
   // GetAll
-  getAllEmployee: (params: EmployerParams) => Promise<EmployerModel>;
+  getAllEmployee: (params: EmployeeParams) => Promise<EmployerModel>;
 
   // GetById
-  getEmployeeById: (params: EmployersByIdParams) => Promise<EmployerByIdModel>;
+  getEmployeeById: (params: EmployeeByIdParams) => Promise<EmployerByIdModel>;
 }
