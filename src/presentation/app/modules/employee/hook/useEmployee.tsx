@@ -5,6 +5,8 @@ import {
   EmployeeByIdParams,
 } from 'domain/usecases/employee/employee-params';
 import { notifyError, notifySuccess } from 'presentation/app/components/notify';
+import { getEmployeeById } from 'presentation/config/store/employee/employeeByIdSlice';
+import { getEmployee } from 'presentation/config/store/employee/employeeListSlice';
 import { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 
@@ -28,7 +30,7 @@ export const useEmployee = ({ employee }: IProps) => {
         userToken: params.userToken,
       })
       .then((res) => {
-        // dispatch(getClients(res));
+        dispatch(getEmployee(res));
       })
       .catch((err) => {
         console.log(err);
@@ -42,7 +44,7 @@ export const useEmployee = ({ employee }: IProps) => {
         userToken: params.userToken,
       })
       .then((res) => {
-        // dispatch(getClientsById(res));
+        dispatch(getEmployeeById(res));
       })
       .catch((err) => {
         console.log(err);

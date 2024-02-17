@@ -4,11 +4,19 @@ import { configureStore } from '@reduxjs/toolkit';
 import { LayoutSlice } from '../store-template/layouts/reducer';
 import { clientsByIdSlice } from './client/clientByIdSlice';
 import { clientsListSlice } from './client/clientListSlice';
+import { employeeByIdSlice } from './employee/employeeByIdSlice';
+import { clientsEmployeeSlice } from './employee/employeeListSlice';
 export const store = configureStore({
   reducer: {
     Layout: LayoutSlice.reducer,
+
+    //List
     clients: clientsListSlice.reducer,
+    employees: clientsEmployeeSlice.reducer,
+
+    //ById
     clientsById: clientsByIdSlice.reducer,
+    employeeById: employeeByIdSlice.reducer,
   },
 });
 
