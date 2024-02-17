@@ -1,4 +1,4 @@
-export type EmployerModel = {
+export type EmployeeModel = {
   page: string;
   size: string;
   totalItems: string;
@@ -17,7 +17,7 @@ export type EmployerModel = {
   ];
 };
 
-export type EmployerByIdModel = {
+export type EmployeeByIdModel = {
   cpf: string;
   name: string;
   email: string;

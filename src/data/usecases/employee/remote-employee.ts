@@ -1,10 +1,10 @@
-import { EmployerByIdModel, EmployerModel } from 'domain/models';
-import { IEmployee } from 'domain/usecases/employer/employer';
+import { EmployeeByIdModel, EmployeeModel } from 'domain/models';
+import { IEmployee } from 'domain/usecases/employee/employee';
 import {
   EmployeeParams,
   EmployeeDeleteParams,
   EmployeeByIdParams,
-} from 'domain/usecases/employer/employer-params';
+} from 'domain/usecases/employee/employee-params';
 
 import {
   InvalidCredentialsError,
@@ -18,7 +18,7 @@ export class RemoteEmployee implements IEmployee {
     private readonly httpClient,
   ) {}
 
-  async getAllEmployee(params: EmployeeParams): Promise<EmployerModel> {
+  async getAllEmployee(params: EmployeeParams): Promise<EmployeeModel> {
     const httpResponse = await this.httpClient.request({
       url: this.url + `?page=${params.page}&size=${params.size}`,
       headers: {
@@ -41,7 +41,7 @@ export class RemoteEmployee implements IEmployee {
 
   async getEmployeeById(
     params: EmployeeByIdParams,
-  ): Promise<EmployerByIdModel> {
+  ): Promise<EmployeeByIdModel> {
     const httpResponse = await this.httpClient.request({
       url: this.url + `/${params.id}`,
       headers: {

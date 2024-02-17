@@ -3,7 +3,7 @@ import {
   EmployeeDeleteParams,
   EmployeeParams,
   EmployeeByIdParams,
-} from 'domain/usecases/employer/employer-params';
+} from 'domain/usecases/employee/employee-params';
 import { notifyError, notifySuccess } from 'presentation/app/components/notify';
 import { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
@@ -20,7 +20,7 @@ export const useEmployee = ({ employee }: IProps) => {
   // const { clients: clientsList } = useAppSelector((state) => state.clients);
   // const { clientsById } = useAppSelector((state) => state.clientsById);
 
-  const requestGetAllClients = useCallback((params: EmployeeParams) => {
+  const requestGetAllEmployee = useCallback((params: EmployeeParams) => {
     employee
       .getAllEmployee({
         page: params.page,
@@ -35,7 +35,7 @@ export const useEmployee = ({ employee }: IProps) => {
       });
   }, []);
 
-  const requestGetClientsById = useCallback((params: EmployeeByIdParams) => {
+  const requestGetEmployeeById = useCallback((params: EmployeeByIdParams) => {
     employee
       .getEmployeeById({
         id: params.id,
@@ -63,8 +63,8 @@ export const useEmployee = ({ employee }: IProps) => {
   };
 
   return {
-    requestGetAllClients,
-    requestGetClientsById,
+    requestGetAllEmployee,
+    requestGetEmployeeById,
     requestDeleteEmployee,
   };
 };
