@@ -16,3 +16,14 @@ export type EmployerModel = {
     },
   ];
 };
+
+export type EmployerByIdModel = {
+  cpf: string;
+  name: string;
+  email: string;
+  createdAt: string;
+  isActive: boolean;
+  role: string;
+  phoneNumber: string;
+  departamentId: string;
+};
