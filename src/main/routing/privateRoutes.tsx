@@ -1,13 +1,13 @@
 import { MakeFormClients } from 'main/factories/modules/clients/clients-form-factory';
 import { MakeClients } from 'main/factories/modules/clients/clients-list-factory';
+import { MakeFormEmployee } from 'main/factories/modules/employee/employee-form-factory';
+import { MakeListEmployee } from 'main/factories/modules/employee/employee-list-factory';
 import DashboardIndex from 'presentation/app/modules/dashboard/pages';
-import EmployeeFormIndex from 'presentation/app/modules/employee/pages/employeeForm';
-import EmployeeListIndex from 'presentation/app/modules/employee/pages/employeeList';
+import ProfileIndex from 'presentation/app/modules/profile/page';
 import RequestIndex from 'presentation/app/modules/requested/pages';
 import { Navigate } from 'react-router-dom';
 
 import { useAuth } from '../../presentation/app/hooks/useAuth';
-import ProfileIndex from 'presentation/app/modules/profile/page';
 
 export const PrivateRoutes = (props: any) => {
   const { currentUser } = useAuth();
@@ -54,12 +54,12 @@ const privateRoutes = [
   {
     path: '/funcionario',
     exact: true,
-    component: <EmployeeListIndex />,
+    component: <MakeListEmployee />,
   },
   {
     path: '/funcionario/novo',
     exact: true,
-    component: <EmployeeFormIndex />,
+    component: <MakeFormEmployee />,
   },
 
   //Perfil

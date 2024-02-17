@@ -1,9 +1,14 @@
+import { IEmployee } from 'domain/usecases';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import EmployeeFormView from './view';
 
-const EmployeeFormIndex = () => {
+interface IProps {
+  employee: IEmployee;
+}
+
+const EmployeeFormIndex = ({ employee }: IProps) => {
   const navigate = useNavigate();
   return <EmployeeFormView navigate={navigate} />;
 };

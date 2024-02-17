@@ -1,9 +1,14 @@
+import { IEmployee } from 'domain/usecases';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import EmployeeView from '../employeeList/view';
 
-const EmployeeListIndex = () => {
+interface IProps {
+  employee: IEmployee;
+}
+
+const EmployeeListIndex = ({ employee }: IProps) => {
   const navigate = useNavigate();
   return <EmployeeView navigate={navigate} />;
 };
