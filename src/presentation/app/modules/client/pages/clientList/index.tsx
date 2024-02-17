@@ -11,12 +11,11 @@ interface IProps {
 }
 
 const ClientListIndex = ({ clients }: IProps) => {
-  const { currentUser } = useAuth();
-
-  const { requestGetAllClients, clientsList, requestDeleteCliente } =
-    useClients({ clients });
   // Hooks
   const navigate = useNavigate();
+  const { currentUser } = useAuth();
+  const { requestGetAllClients, clientsList, requestDeleteCliente } =
+    useClients({ clients });
 
   // useEffect
   useEffect(() => {

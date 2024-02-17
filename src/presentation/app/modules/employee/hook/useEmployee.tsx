@@ -5,6 +5,7 @@ import {
   EmployeeByIdParams,
 } from 'domain/usecases/employee/employee-params';
 import { notifyError, notifySuccess } from 'presentation/app/components/notify';
+import { useAppSelector } from 'presentation/config/hooks/useRedux';
 import { getEmployeeById } from 'presentation/config/store/employee/employeeByIdSlice';
 import { getEmployee } from 'presentation/config/store/employee/employeeListSlice';
 import { useCallback } from 'react';
@@ -19,8 +20,10 @@ export const useEmployee = ({ employee }: IProps) => {
   // Hook
   const dispatch = useDispatch();
 
-  // const { clients: clientsList } = useAppSelector((state) => state.clients);
-  // const { clientsById } = useAppSelector((state) => state.clientsById);
+  const { employees: employeeList } = useAppSelector(
+    (state) => state.employees,
+  );
+  const {} = useAppSelector((state) => state.employeeById);
 
   const requestGetAllEmployee = useCallback((params: EmployeeParams) => {
     employee
@@ -68,5 +71,6 @@ export const useEmployee = ({ employee }: IProps) => {
     requestGetAllEmployee,
     requestGetEmployeeById,
     requestDeleteEmployee,
+    employeeList,
   };
 };
