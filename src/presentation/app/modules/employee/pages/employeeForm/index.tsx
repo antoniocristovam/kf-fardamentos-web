@@ -1,7 +1,9 @@
 import { IEmployee } from 'domain/usecases';
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useAuth } from 'presentation/app/hooks/useAuth';
+import React, { useEffect } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 
+import { useEmployee } from '../../hook/useEmployee';
 import EmployeeFormView from './view';
 
 interface IProps {
@@ -9,7 +11,18 @@ interface IProps {
 }
 
 const EmployeeFormIndex = ({ employee }: IProps) => {
+  //Hooks
+  const { id } = useParams();
   const navigate = useNavigate();
+  const { currentUser } = useAuth();
+  const { requestGetEmployeeById } = useEmployee({ employee });
+
+  //useEffect
+  if (id) {
+    useEffect(() => {
+      requestGetEmployeeById({ id: id, userToken: currentUser.token });
+    }, []);
+  }
   return <EmployeeFormView navigate={navigate} />;
 };
 

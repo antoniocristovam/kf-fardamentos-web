@@ -37,7 +37,7 @@ const EmployeeListView = ({
               name: 'edit',
               label: 'Editar',
               onPress: (cellProps) => {
-                navigate(`/cliente/${cellProps.cpf_cnpj}`);
+                navigate(`/funcionario/${cellProps.cpf}`);
               },
               icon: 'ri-pencil-fill',
               classNameColorIcon: 'primary',

@@ -14,12 +14,8 @@ const EmployeeListIndex = ({ employee }: IProps) => {
   // Hook
   const navigate = useNavigate();
   const { currentUser } = useAuth();
-  const {
-    requestGetAllEmployee,
-    requestDeleteEmployee,
-    requestGetEmployeeById,
-    employeeList,
-  } = useEmployee({ employee });
+  const { requestGetAllEmployee, requestDeleteEmployee, employeeList } =
+    useEmployee({ employee });
 
   // useEffect
   useEffect(() => {

@@ -61,6 +61,11 @@ const privateRoutes = [
     exact: true,
     component: <MakeFormEmployee />,
   },
+  {
+    path: '/funcionario/:id',
+    exact: true,
+    component: <MakeFormEmployee />,
+  },
 
   //Perfil
 
