@@ -22,7 +22,8 @@ const ClientFormIndex = ({ clients }: IProps) => {
   const { id } = useParams();
   const navigate = useNavigate();
   const { currentUser } = useAuth();
-  const { requestGetClientsById, clientsById } = useClients({ clients });
+  const { requestGetClientsById, clientsById, requestCreateClients } =
+    useClients({ clients });
 
   const validation = useFormik({
     enableReinitialize: true,
@@ -67,15 +68,51 @@ const ClientFormIndex = ({ clients }: IProps) => {
 
     onSubmit: async (values) => {
       const valueToSubmit = {
-        name: values.name,
-        email: values.email,
-        cpf_cnpj: values.cpf_cnpj,
-        addresses: values.addresses,
-        firstPhoneNumber: values.firstPhoneNumber,
-        thirdPhoneNumber: values.thirdPhoneNumber,
-        secondPhoneNumber: values.secondPhoneNumber,
+        // name: values.name,
+        // email: values.email,
+        // cpf_cnpj: values.cpf_cnpj,
+        // firstPhoneNumber: values.firstPhoneNumber,
+        // thirdPhoneNumber: values.thirdPhoneNumber,
+        // secondPhoneNumber: values.secondPhoneNumber,
+        // addresses: [
+        //   {
+        //     id: '',
+        //     city: '',
+        //     state: '',
+        //     number: '',
+        //     parish: '',
+        //     street: '',
+        //     clientId: '',
+        //     community: '',
+        //     postalCode: '',
+        //     neighborhood: '',
+        //     aditionalInformation: '',
+        //   },
+        // ],
+
+        name: 'yrsry',
+        email: '34252345@gmail.com',
+        cpf_cnpj: '811.829.290-87',
+        firstPhoneNumber: '(81) 98222-4436',
+        thirdPhoneNumber: '',
+        secondPhoneNumber: '',
+        addresses: [
+          {
+            postalCode: '55690-000',
+            street: 'rua de terste',
+            state: 'PE',
+            city: 'Barra de Guabiraba',
+            neighborhood: 'nova casa',
+            number: '12',
+            aditionalInformation: 'teste',
+          },
+        ],
       };
-      console.log(valueToSubmit);
+      // console.log(valueToSubmit);
+      requestCreateClients({
+        valueToSubmit: valueToSubmit,
+        userToken: currentUser.token,
+      });
     },
   });
 

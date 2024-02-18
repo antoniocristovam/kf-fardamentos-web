@@ -1,8 +1,14 @@
-import { ClientsByIdModel, ClientsModel } from 'domain/models';
 import {
-  ClientsByIdParams,
-  ClientsDeleteParams,
+  ClientsModel,
+  ClientsByIdModel,
+  ClientsCreateModel,
+  ClientsCreateResponse,
+} from 'domain/models';
+import {
   ClientsParams,
+  ClientsByIdParams,
+  ClientsCreateParams,
+  ClientsDeleteParams,
 } from 'domain/usecases/clients/clients-params';
 
 import {
@@ -54,6 +60,25 @@ export class RemoteClients implements IClients {
       case HttpStatusCode.notModified:
         return httpResponse.body;
       case HttpStatusCode.unauthorized:
+        throw new InvalidCredentialsError();
+      default:
+        throw new UnexpectedError();
+    }
+  }
+
+  async createClients(
+    params: ClientsCreateParams,
+  ): Promise<ClientsCreateResponse> {
+    const httpResponse = await this.httpClient.request({
+      method: 'post',
+      url: this.url,
+      body: params.valueToSubmit,
+    });
+
+    switch (httpResponse.statusCode) {
+      case HttpStatusCode.ok:
+        return httpResponse.body;
+      case HttpStatusCode.forbidden:
         throw new InvalidCredentialsError();
       default:
         throw new UnexpectedError();

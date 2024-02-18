@@ -1,8 +1,8 @@
 import { IUserModel } from 'presentation/app/hooks/useAuth';
 
 import {
-  InvalidCredentialsError,
   UnexpectedError,
+  InvalidCredentialsError,
 } from '../../../domain/errors';
 import {
   type IAuthentication,

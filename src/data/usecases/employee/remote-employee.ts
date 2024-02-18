@@ -2,13 +2,13 @@ import { EmployeeByIdModel, EmployeeModel } from 'domain/models';
 import { IEmployee } from 'domain/usecases/employee/employee';
 import {
   EmployeeParams,
-  EmployeeDeleteParams,
   EmployeeByIdParams,
+  EmployeeDeleteParams,
 } from 'domain/usecases/employee/employee-params';
 
 import {
-  InvalidCredentialsError,
   UnexpectedError,
+  InvalidCredentialsError,
 } from '../../../domain/errors';
 import { HttpStatusCode } from '../../protocols/http';
 

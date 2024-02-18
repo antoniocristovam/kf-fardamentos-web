@@ -1,6 +1,7 @@
 import { IClients } from 'domain/usecases';
 import {
   ClientsByIdParams,
+  ClientsCreateParams,
   ClientsDeleteParams,
   ClientsParams,
 } from 'domain/usecases/clients/clients-params';
@@ -52,6 +53,18 @@ export const useClients = ({ clients }: IProps) => {
       });
   }, []);
 
+  const requestCreateClients = (params: ClientsCreateParams) => {
+    clients
+      .createClients(params)
+      .then((res) => {
+        // dispatch(clearUsuario());
+        notifySuccess(String(res));
+      })
+      .catch((err) => {
+        notifyError(err?.message);
+      });
+  };
+
   const requestDeleteCliente = (params: ClientsDeleteParams) => {
     clients
       .deleteClients({ id: params.id, userToken: params.userToken })
@@ -69,5 +82,6 @@ export const useClients = ({ clients }: IProps) => {
     requestGetAllClients,
     requestGetClientsById,
     requestDeleteCliente,
+    requestCreateClients,
   };
 };

@@ -16,25 +16,49 @@ export type ClientsModel = {
 };
 
 export type ClientsByIdModel = {
-  cpf_cnpj: string;
   name: string;
   email: string;
+  cpf_cnpj: string;
+  thirdPhoneNumber: string;
   firstPhoneNumber: string;
   secondPhoneNumber: string;
-  thirdPhoneNumber: string;
   addresses: [
     {
       id: string;
-      postalCode: string;
+      city: string;
       state: string;
       street: string;
-      city: string;
-      neighborhood: string;
-      number: string;
-      aditionalInformation: string;
       parish: string;
-      community: string;
+      number: string;
       clientId: string;
+      community: string;
+      postalCode: string;
+      neighborhood: string;
+      aditionalInformation: string;
     },
   ];
+};
+
+export type ClientsCreateModel = {
+  name: string;
+  email: string;
+  cpf_cnpj: string;
+  firstPhoneNumber: string;
+  thirdPhoneNumber: string;
+  secondPhoneNumber: string;
+  addresses: {
+    city: string;
+    state: string;
+    street: string;
+    number: string;
+    postalCode: string;
+    neighborhood: string;
+    aditionalInformation: string;
+  }[];
+};
+
+export type ClientsCreateResponse = {
+  error: string;
+  message: string;
+  statusCode: string;
 };

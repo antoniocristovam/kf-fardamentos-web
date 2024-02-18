@@ -1,3 +1,5 @@
+import { ClientsCreateModel } from 'domain/models';
+
 export type ClientsParams = {
   page: string;
   size: string;
@@ -12,4 +14,9 @@ export type ClientsByIdParams = {
 export type ClientsDeleteParams = {
   id: string;
   userToken: string;
+};
+
+export type ClientsCreateParams = {
+  userToken: string;
+  valueToSubmit: ClientsCreateModel;
 };

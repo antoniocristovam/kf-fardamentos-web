@@ -1,9 +1,15 @@
-import { ClientsByIdModel, ClientsModel } from 'domain/models';
+import {
+  ClientsModel,
+  ClientsByIdModel,
+  ClientsCreateModel,
+  ClientsCreateResponse,
+} from 'domain/models';
 
 import {
   ClientsParams,
   ClientsByIdParams,
   ClientsDeleteParams,
+  ClientsCreateParams,
 } from './clients-params';
 
 export interface IClients {
@@ -15,4 +21,9 @@ export interface IClients {
 
   // GetById
   getClientsById: (params: ClientsByIdParams) => Promise<ClientsByIdModel>;
+
+  // Create
+  createClients: (
+    params: ClientsCreateParams,
+  ) => Promise<ClientsCreateResponse>;
 }
