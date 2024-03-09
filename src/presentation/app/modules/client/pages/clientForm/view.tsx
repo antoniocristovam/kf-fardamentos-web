@@ -276,7 +276,7 @@ const ClientFormView = ({
                       className="btn btn-danger me-2"
                       onClick={() => navigate('/cliente')}
                     >
-                      Cancelar
+                      Voltar
                     </Button>
                     <Button color="primary" type="submit">
                       Salvar
