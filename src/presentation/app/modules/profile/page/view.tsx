@@ -234,7 +234,7 @@ const ProfileView = ({ currentUser }: IProps) => {
                                   className="form-control"
                                   id="name"
                                   placeholder="Nome"
-                                  efaultValue={currentUser.user?.name}
+                                  defaultValue={currentUser.user?.name}
                                 />
                               </div>
                             </Col>
@@ -251,7 +251,7 @@ const ProfileView = ({ currentUser }: IProps) => {
                                   className="form-control"
                                   id="phonenumberInput"
                                   placeholder="Telefone"
-                                  efaultValue={currentUser.user?.cpf}
+                                  defaultValue={currentUser.user?.cpf}
                                 />
                               </div>
                             </Col>
