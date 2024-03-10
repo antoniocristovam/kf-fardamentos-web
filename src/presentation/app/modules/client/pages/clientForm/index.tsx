@@ -47,12 +47,17 @@ const ClientFormIndex = ({ clients }: IProps) => {
       ],
     },
     validationSchema: Yup.object({
-      cpf_cnpj: Yup.string().required('Obrigatório!'),
-      name: Yup.string().required('Obrigatório!'),
-      email: Yup.string().email('Email inválido!').required('Obrigatório!'),
-      firstPhoneNumber: Yup.string().required('Obrigatório!'),
-      secondPhoneNumber: Yup.string(),
       thirdPhoneNumber: Yup.string(),
+      secondPhoneNumber: Yup.string(),
+
+      name: Yup.string().required('Nome é obrigatório!'),
+      firstPhoneNumber: Yup.string().required('Obrigatório!'),
+      cpf_cnpj: Yup.string().required('CPF ou CNPJ é obrigatório!'),
+      email: Yup.string()
+        .email('Email inválido!')
+        .required('Email é obrigatório!'),
+
+      // Addresses
       addresses: Yup.array().of(
         Yup.object().shape({
           city: Yup.string(),
@@ -68,47 +73,25 @@ const ClientFormIndex = ({ clients }: IProps) => {
 
     onSubmit: async (values) => {
       const valueToSubmit = {
-        // name: values.name,
-        // email: values.email,
-        // cpf_cnpj: values.cpf_cnpj,
-        // firstPhoneNumber: values.firstPhoneNumber,
-        // thirdPhoneNumber: values.thirdPhoneNumber,
-        // secondPhoneNumber: values.secondPhoneNumber,
-        // addresses: [
-        //   {
-        //     id: '',
-        //     city: '',
-        //     state: '',
-        //     number: '',
-        //     parish: '',
-        //     street: '',
-        //     clientId: '',
-        //     community: '',
-        //     postalCode: '',
-        //     neighborhood: '',
-        //     aditionalInformation: '',
-        //   },
-        // ],
+        name: values.name,
+        email: values.email,
+        cpf_cnpj: values.cpf_cnpj,
+        firstPhoneNumber: values.firstPhoneNumber,
+        thirdPhoneNumber: values.thirdPhoneNumber,
+        secondPhoneNumber: values.secondPhoneNumber,
 
-        name: 'yrsry',
-        email: '34252345@gmail.com',
-        cpf_cnpj: '811.829.290-87',
-        firstPhoneNumber: '(81) 98222-4436',
-        thirdPhoneNumber: '',
-        secondPhoneNumber: '',
         addresses: [
           {
+            state: 'PE',
+            number: '12',
             postalCode: '55690-000',
             street: 'rua de terste',
-            state: 'PE',
-            city: 'Barra de Guabiraba',
             neighborhood: 'nova casa',
-            number: '12',
+            city: 'Barra de Guabiraba',
             aditionalInformation: 'teste',
           },
         ],
       };
-      // console.log(valueToSubmit);
       requestCreateClients({
         valueToSubmit: valueToSubmit,
         userToken: currentUser.token,

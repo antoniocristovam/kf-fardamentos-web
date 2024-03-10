@@ -1,7 +1,6 @@
 import {
   ClientsModel,
   ClientsByIdModel,
-  ClientsCreateModel,
   ClientsCreateResponse,
 } from 'domain/models';
 import {
@@ -16,12 +15,12 @@ import {
   UnexpectedError,
 } from '../../../domain/errors';
 import { IClients } from '../../../domain/usecases';
-import { HttpStatusCode } from '../../protocols/http';
+import { HttpStatusCode, HttpClient } from '../../protocols/http';
 
 export class RemoteClients implements IClients {
   constructor(
     private readonly url: string,
-    private readonly httpClient,
+    private readonly httpClient: HttpClient,
   ) {}
 
   async getAllClients(params: ClientsParams): Promise<ClientsModel> {
@@ -86,14 +85,12 @@ export class RemoteClients implements IClients {
   }
 
   async deleteClients(params: ClientsDeleteParams): Promise<void> {
-    console.log('oi', params);
-
     const httpResponse = await this.httpClient.request({
       url: `${this.url}/${params.id}`,
       method: 'delete',
-      // headers: {
-      //   Authorization: `Bearer ${params?.userToken}`,
-      // },
+      headers: {
+        Authorization: `Bearer ${params?.userToken}`,
+      },
     });
 
     switch (httpResponse.statusCode) {

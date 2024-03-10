@@ -19,6 +19,7 @@ import {
 // Assets
 import AuthPageHeading from '../../components/authPageHeading';
 import AuthWrapper from '../../components/authWrapper/AuthWrapper';
+import InputCpf from 'presentation/app/components/cpf-input';
 
 interface IPropsAuthentication {
   error: boolean;
@@ -59,13 +60,15 @@ export const LoginView = ({
                           <Label htmlFor="cpf" className="form-label">
                             CPF
                           </Label>
-                          <CpfInput
+                          <InputCpf
                             name="cpf"
-                            handleChange={validation.handleChange}
                             inputId="cpf"
                             placeholder="CPF"
-                            value={validation.values.cpf}
                             className="form-control"
+                            value={validation.values.cpf}
+                            onBlur={validation.handleBlur}
+                            onChange={validation.handleChange}
+                            handleChange={validation.handleChange}
                             invalid={
                               !!(
                                 validation.touched.cpf && validation.errors.cpf

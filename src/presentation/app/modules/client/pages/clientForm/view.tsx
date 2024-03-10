@@ -15,6 +15,7 @@ import {
   Container,
   CardFooter,
   CardHeader,
+  FormFeedback,
 } from 'reactstrap';
 
 interface IProps {
@@ -26,11 +27,10 @@ interface IProps {
 }
 
 const ClientFormView = ({
+  id,
   navigate,
   validation,
-  id,
   currentAddress,
-  setCurrentAddress,
 }: IProps) => {
   return (
     <React.Fragment>
@@ -69,7 +69,15 @@ const ClientFormView = ({
                     value={validation.values.name}
                     onBlur={validation.handleBlur}
                     onChange={validation.handleChange}
+                    invalid={
+                      !!(validation.touched.name && validation.errors.name)
+                    }
                   />
+                  {validation.touched.name && validation.errors.name ? (
+                    <FormFeedback type="invalid">
+                      {validation.errors.name}
+                    </FormFeedback>
+                  ) : null}
                 </Col>
                 <Col md={3}>
                   <Label htmlFor="cpf_cnpj" className="form-label">
@@ -78,12 +86,23 @@ const ClientFormView = ({
                   <Input
                     type="text"
                     name="cpf_cnpj"
-                    placeholder="CPF ou CNPJ"
                     className="form-control"
-                    value={validation.values.cpf_cnpj}
+                    placeholder="CPF ou CNPJ"
                     onBlur={validation.handleBlur}
+                    value={validation.values.cpf_cnpj}
                     onChange={validation.handleChange}
+                    invalid={
+                      !!(
+                        validation.touched.cpf_cnpj &&
+                        validation.errors.cpf_cnpj
+                      )
+                    }
                   />
+                  {validation.touched.cpf_cnpj && validation.errors.cpf_cnpj ? (
+                    <FormFeedback type="invalid">
+                      {validation.errors.cpf_cnpj}
+                    </FormFeedback>
+                  ) : null}
                 </Col>
                 <Col md={3}>
                   <Label htmlFor="email" className="form-label ">
@@ -97,7 +116,15 @@ const ClientFormView = ({
                     onBlur={validation.handleBlur}
                     value={validation.values.email}
                     onChange={validation.handleChange}
+                    invalid={
+                      !!(validation.touched.email && validation.errors.email)
+                    }
                   />
+                  {validation.touched.email && validation.errors.email ? (
+                    <FormFeedback type="invalid">
+                      {validation.errors.email}
+                    </FormFeedback>
+                  ) : null}
                 </Col>
               </Row>
             </CardBody>
@@ -111,14 +138,26 @@ const ClientFormView = ({
                     Telefone 1
                   </Label>
                   <Input
-                    name="firstPhoneNumber"
                     type="text"
+                    name="firstPhoneNumber"
                     placeholder="Telefone 1"
                     className="form-control"
                     onBlur={validation.handleBlur}
-                    value={validation.values.firstPhoneNumber}
                     onChange={validation.handleChange}
+                    value={validation.values.firstPhoneNumber}
+                    invalid={
+                      !!(
+                        validation.touched.firstPhoneNumber &&
+                        validation.errors.firstPhoneNumber
+                      )
+                    }
                   />
+                  {validation.touched.firstPhoneNumber &&
+                  validation.errors.firstPhoneNumber ? (
+                    <FormFeedback type="invalid">
+                      {validation.errors.firstPhoneNumber}
+                    </FormFeedback>
+                  ) : null}
                 </Col>
                 <Col md={4}>
                   <Label htmlFor="secondPhoneNumber" className="form-label ">
@@ -162,8 +201,8 @@ const ClientFormView = ({
                     CEP
                   </Label>
                   <Input
-                    name="postalCode"
                     type="number"
+                    name="postalCode"
                     placeholder="CEP"
                     className="form-control"
                     onBlur={validation.handleBlur}
