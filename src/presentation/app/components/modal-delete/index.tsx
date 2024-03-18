@@ -1,6 +1,7 @@
 import React from 'react';
-import { Button, Col, Modal, CardBody, Row } from 'reactstrap';
 import Lottie from 'react-lottie';
+import { Button, Col, Modal, CardBody, Row } from 'reactstrap';
+
 import animationTrash from '../../../../animation/animation-trash.json';
 interface IProps {
   isOpen: boolean;

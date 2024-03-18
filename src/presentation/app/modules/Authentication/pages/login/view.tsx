@@ -1,6 +1,6 @@
 // React
-import { CpfInput } from 'adasi_components';
 import { FormikValues } from 'formik';
+import InputCpf from 'presentation/app/components/cpf-input';
 import React, { SetStateAction } from 'react';
 import { Link } from 'react-router-dom';
 import {
@@ -17,9 +17,9 @@ import {
 } from 'reactstrap';
 
 // Assets
+
 import AuthPageHeading from '../../components/authPageHeading';
 import AuthWrapper from '../../components/authWrapper/AuthWrapper';
-import InputCpf from 'presentation/app/components/cpf-input';
 
 interface IPropsAuthentication {
   error: boolean;
