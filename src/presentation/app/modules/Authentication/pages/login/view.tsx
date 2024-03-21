@@ -16,10 +16,10 @@ import {
   FormFeedback,
 } from 'reactstrap';
 
-// Assets
-
 import AuthPageHeading from '../../components/authPageHeading';
-import AuthWrapper from '../../components/authWrapper/AuthWrapper';
+import AuthWrapper from '../../components/authWrapper/authWrapper';
+
+// Assets
 
 interface IPropsAuthentication {
   error: boolean;
