@@ -1,5 +1,11 @@
 // React
-import React, { useState, useCallback, useEffect } from 'react';
+import React, {
+  useState,
+  useCallback,
+  useEffect,
+  Dispatch,
+  SetStateAction,
+} from 'react';
 import DataTableComponent from 'react-data-table-component';
 import { Col, Row } from 'reactstrap';
 
@@ -24,6 +30,8 @@ interface dataTableIProps {
   handleDelete?: (cpf_cnpj: any) => void;
   canSearch: boolean;
   keysSearch?: string[];
+  handlePerRowsChange?: (newPerPage: number, page: number) => void;
+  paginationTotalRows?: number;
 }
 
 export const DataTable = ({
@@ -35,12 +43,16 @@ export const DataTable = ({
   handleDelete,
   canSearch = true,
   keysSearch = ['name'],
+  handlePerRowsChange,
+  paginationTotalRows,
   ...rest
 }: dataTableIProps) => {
   const [isHover, setIsHover] = useState(0);
   const [registerId, setRegisterId] = useState(null);
   const [filteredData, setFilteredData] = useState(null);
   const [modal_delete, setModal_delete] = useState(false);
+
+  const totalItems = paginationTotalRows;
 
   const toggleModal = useCallback(
     (cpf_cnpj: string) => {
@@ -140,6 +152,10 @@ export const DataTable = ({
       <DataTableComponent
         {...rest}
         pagination
+        paginationServer
+        paginationTotalRows={totalItems}
+        onChangeRowsPerPage={handlePerRowsChange}
+        onChangePage={handlePerRowsChange}
         onRowMouseEnter={(row: any) => {
           setIsHover(row.cpf_cnpj ? row.cpf_cnpj : row.hashid);
         }}
