@@ -20,7 +20,12 @@ const EmployeeListIndex = ({ employee }: IProps) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize, setPageSize] = useState(10);
 
-  const handlePerRowsChange = (newPerPage: number, page: number) => {
+  const handleNewPageChangeEmployees = (newPage: number) => {
+    setCurrentPage(newPage);
+    console.log(newPage);
+  };
+
+  const handlePerRowsChangeEmployees = (newPerPage: number, page: number) => {
     setCurrentPage(page);
     setPageSize(newPerPage);
   };
@@ -39,7 +44,8 @@ const EmployeeListIndex = ({ employee }: IProps) => {
       currentUser={currentUser}
       requestDeleteEmployee={requestDeleteEmployee}
       employeeList={employeeList}
-      handlePerRowsChange={handlePerRowsChange}
+      handleNewPageChangeEmployees={handleNewPageChangeEmployees}
+      handlePerRowsChangeEmployees={handlePerRowsChangeEmployees}
     />
   );
 };

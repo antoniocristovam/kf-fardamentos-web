@@ -30,6 +30,7 @@ interface dataTableIProps {
   handleDelete?: (cpf_cnpj: any) => void;
   canSearch: boolean;
   keysSearch?: string[];
+  handleNewPageChange?: (page: number) => void;
   handlePerRowsChange?: (newPerPage: number, page: number) => void;
   paginationTotalRows?: number;
 }
@@ -43,6 +44,7 @@ export const DataTable = ({
   handleDelete,
   canSearch = true,
   keysSearch = ['name'],
+  handleNewPageChange,
   handlePerRowsChange,
   paginationTotalRows,
   ...rest
@@ -154,8 +156,8 @@ export const DataTable = ({
         pagination
         paginationServer
         paginationTotalRows={totalItems}
+        onChangePage={handleNewPageChange}
         onChangeRowsPerPage={handlePerRowsChange}
-        onChangePage={handlePerRowsChange}
         onRowMouseEnter={(row: any) => {
           setIsHover(row.cpf_cnpj ? row.cpf_cnpj : row.hashid);
         }}

@@ -16,7 +16,8 @@ interface IProps {
 
   currentUser: IUserModel;
   employeeList: EmployeeModel;
-  handlePerRowsChange: (newPerPage: number, page: number) => void;
+  handleNewPageChangeEmployees: (page: number) => void;
+  handlePerRowsChangeEmployees: (newPerPage: number, page: number) => void;
 }
 
 const EmployeeListView = ({
@@ -25,7 +26,8 @@ const EmployeeListView = ({
 
   currentUser,
   employeeList,
-  handlePerRowsChange,
+  handleNewPageChangeEmployees,
+  handlePerRowsChangeEmployees,
 }: IProps) => {
   return (
     <PageWrapper title="Listagem de Funcionários">
@@ -35,7 +37,8 @@ const EmployeeListView = ({
           columns={makeColumnsEmployee()}
           data={employeeList?.content || []}
           paginationTotalRows={employeeList?.totalItems}
-          handlePerRowsChange={handlePerRowsChange}
+          handleNewPageChange={handleNewPageChangeEmployees}
+          handlePerRowsChange={handlePerRowsChangeEmployees}
           actions={[
             {
               cpf_cnpj: 1,

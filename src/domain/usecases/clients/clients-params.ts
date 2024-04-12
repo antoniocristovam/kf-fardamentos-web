@@ -1,8 +1,8 @@
 import { ClientsCreateModel } from 'domain/models';
 
 export type ClientsParams = {
-  page: string;
-  size: string;
+  page: number;
+  size: number;
   userToken: string;
 };
 
