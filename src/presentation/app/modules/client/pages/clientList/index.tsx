@@ -22,7 +22,6 @@ const ClientListIndex = ({ clients }: IProps) => {
 
   const handleNewPageChangeClients = (newPage: number) => {
     setCurrentPage(newPage);
-    console.log(newPage);
   };
 
   const handlePerRowsChangeClients = (newPerPage: number, page: number) => {

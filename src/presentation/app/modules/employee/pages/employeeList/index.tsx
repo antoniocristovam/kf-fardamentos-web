@@ -22,7 +22,6 @@ const EmployeeListIndex = ({ employee }: IProps) => {
 
   const handleNewPageChangeEmployees = (newPage: number) => {
     setCurrentPage(newPage);
-    console.log(newPage);
   };
 
   const handlePerRowsChangeEmployees = (newPerPage: number, page: number) => {
