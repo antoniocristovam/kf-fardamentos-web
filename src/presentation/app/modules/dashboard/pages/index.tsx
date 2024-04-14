@@ -1,8 +1,7 @@
-import React from 'react';
 import DashboardView from './view';
 
-const DashboardIndex = () => {
+const Dashboard = () => {
   return <DashboardView />;
 };
 
-export default DashboardIndex;
+export default Dashboard;
