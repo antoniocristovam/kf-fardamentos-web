@@ -12,11 +12,8 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 import './presentation/config/assets/scss/themes.scss';
 import { Router } from './main/routing';
-import fakeBackend from './presentation/app/helpers/AuthType/fakeBackend';
 
 // Activating fake backend
-fakeBackend();
-
 function App() {
   return (
     <React.Fragment>

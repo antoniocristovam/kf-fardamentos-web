@@ -60,12 +60,6 @@ const AuthProvider: FC<WithChildren> = ({ children }) => {
     }
   };
 
-  /* 
-    1. Quando o usuário fizer login, criar um identificar de sessão para ele.
-    2. Armazenar identificador em um cookie.
-    3. Sempre que o usuário fizer uma requisição, usar o id da sessão (extraído do cookie) para recuperar os detalhes da conta
-  */
-
   const [auth, setAuth] = useState<IUserModel | undefined>();
   const [currentUser, setCurrentUser] = useState<IUserModel | undefined>(
     getLoggedUser(),
