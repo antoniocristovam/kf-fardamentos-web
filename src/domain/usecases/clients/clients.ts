@@ -1,7 +1,6 @@
 import {
   ClientsModel,
   ClientsByIdModel,
-  ClientsCreateModel,
   ClientsCreateResponse,
 } from 'domain/models';
 

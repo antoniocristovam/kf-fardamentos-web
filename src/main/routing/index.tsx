@@ -4,8 +4,8 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 // Layouts
-import VerticalLayout from '../../presentation/config/layouts/index';
 // eslint-disable-next-line import-helpers/order-imports
+import VerticalLayout from '../../presentation/config/layouts/index';
 
 // Routes
 import { PrivateRoutes, privateRoutes } from './privateRoutes';
