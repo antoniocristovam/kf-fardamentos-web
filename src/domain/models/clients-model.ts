@@ -1,8 +1,8 @@
 export type ClientsModel = {
-  page: string;
-  size: string;
-  totalItems: string;
-  totalPages: string;
+  page: number;
+  size: number;
+  totalItems: number;
+  totalPages: number;
   content: [
     {
       name: string;

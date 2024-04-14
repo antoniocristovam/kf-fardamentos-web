@@ -1,6 +1,6 @@
 import { IClients } from 'domain/usecases';
 import { useAuth } from 'presentation/app/hooks/useAuth';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { useClients } from '../../hook/useClients';
@@ -17,14 +17,26 @@ const ClientListIndex = ({ clients }: IProps) => {
   const { requestGetAllClients, clientsList, requestDeleteCliente } =
     useClients({ clients });
 
+  const [currentPage, setCurrentPage] = useState(1);
+  const [pageSize, setPageSize] = useState(10);
+
+  const handleNewPageChangeClients = (newPage: number) => {
+    setCurrentPage(newPage);
+  };
+
+  const handlePerRowsChangeClients = (newPerPage: number, page: number) => {
+    setCurrentPage(page);
+    setPageSize(newPerPage);
+  };
+
   // useEffect
   useEffect(() => {
     requestGetAllClients({
-      page: '1',
-      size: '10',
+      page: currentPage,
+      size: pageSize,
       userToken: currentUser.token,
     });
-  }, []);
+  }, [currentPage, pageSize]);
 
   return (
     <ClientView
@@ -32,6 +44,8 @@ const ClientListIndex = ({ clients }: IProps) => {
       clientsList={clientsList}
       currentUser={currentUser}
       requestDeleteCliente={requestDeleteCliente}
+      handleNewPageChangeClients={handleNewPageChangeClients}
+      handlePerRowsChangeClients={handlePerRowsChangeClients}
     />
   );
 };

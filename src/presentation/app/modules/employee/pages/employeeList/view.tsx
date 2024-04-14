@@ -4,6 +4,7 @@ import { DataTable } from 'presentation/app/components/datatable';
 import { FloatButton } from 'presentation/app/components/floatButton';
 import { PageWrapper } from 'presentation/app/components/page-wrapper';
 import { IUserModel } from 'presentation/app/hooks/useAuth';
+import { Dispatch, SetStateAction } from 'react';
 import { NavigateFunction } from 'react-router-dom';
 import { Card } from 'reactstrap';
 
@@ -15,6 +16,8 @@ interface IProps {
 
   currentUser: IUserModel;
   employeeList: EmployeeModel;
+  handleNewPageChangeEmployees: (page: number) => void;
+  handlePerRowsChangeEmployees: (newPerPage: number, page: number) => void;
 }
 
 const EmployeeListView = ({
@@ -23,6 +26,8 @@ const EmployeeListView = ({
 
   currentUser,
   employeeList,
+  handleNewPageChangeEmployees,
+  handlePerRowsChangeEmployees,
 }: IProps) => {
   return (
     <PageWrapper title="Listagem de Funcionários">
@@ -31,6 +36,9 @@ const EmployeeListView = ({
         <DataTable
           columns={makeColumnsEmployee()}
           data={employeeList?.content || []}
+          paginationTotalRows={employeeList?.totalItems}
+          handleNewPageChange={handleNewPageChangeEmployees}
+          handlePerRowsChange={handlePerRowsChangeEmployees}
           actions={[
             {
               cpf_cnpj: 1,

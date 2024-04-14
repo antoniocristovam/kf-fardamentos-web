@@ -1,6 +1,6 @@
 import { IEmployee } from 'domain/usecases';
 import { useAuth } from 'presentation/app/hooks/useAuth';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { useEmployee } from '../../hook/useEmployee';
@@ -17,14 +17,25 @@ const EmployeeListIndex = ({ employee }: IProps) => {
   const { requestGetAllEmployee, requestDeleteEmployee, employeeList } =
     useEmployee({ employee });
 
-  // useEffect
+  const [currentPage, setCurrentPage] = useState(1);
+  const [pageSize, setPageSize] = useState(10);
+
+  const handleNewPageChangeEmployees = (newPage: number) => {
+    setCurrentPage(newPage);
+  };
+
+  const handlePerRowsChangeEmployees = (newPerPage: number, page: number) => {
+    setCurrentPage(page);
+    setPageSize(newPerPage);
+  };
+
   useEffect(() => {
     requestGetAllEmployee({
-      page: '1',
-      size: '10',
+      page: currentPage,
+      size: pageSize,
       userToken: currentUser.token,
     });
-  }, []);
+  }, [currentPage, pageSize]);
 
   return (
     <EmployeeView
@@ -32,6 +43,8 @@ const EmployeeListIndex = ({ employee }: IProps) => {
       currentUser={currentUser}
       requestDeleteEmployee={requestDeleteEmployee}
       employeeList={employeeList}
+      handleNewPageChangeEmployees={handleNewPageChangeEmployees}
+      handlePerRowsChangeEmployees={handlePerRowsChangeEmployees}
     />
   );
 };

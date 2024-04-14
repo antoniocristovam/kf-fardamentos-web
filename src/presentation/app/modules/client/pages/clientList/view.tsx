@@ -14,6 +14,8 @@ interface IProps {
   clientsList: ClientsModel;
   navigate: NavigateFunction;
   requestDeleteCliente: (params: ClientsDeleteParams) => void;
+  handleNewPageChangeClients: (page: number) => void;
+  handlePerRowsChangeClients: (newPerPage: number, page: number) => void;
 }
 
 const ClientView = ({
@@ -21,6 +23,8 @@ const ClientView = ({
   clientsList,
   currentUser,
   requestDeleteCliente,
+  handlePerRowsChangeClients,
+  handleNewPageChangeClients,
 }: IProps) => {
   return (
     <PageWrapper title="Listagem de clientes">
@@ -29,6 +33,9 @@ const ClientView = ({
         <DataTable
           columns={makeColumnsClients()}
           data={clientsList?.content || []}
+          paginationTotalRows={clientsList?.totalItems}
+          handleNewPageChange={handleNewPageChangeClients}
+          handlePerRowsChange={handlePerRowsChangeClients}
           actions={[
             {
               cpf_cnpj: 1,

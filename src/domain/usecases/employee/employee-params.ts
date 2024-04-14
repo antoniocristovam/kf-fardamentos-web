@@ -1,6 +1,6 @@
 export type EmployeeParams = {
-  page: string;
-  size: string;
+  page: number;
+  size: number;
   userToken: string;
 };
 
