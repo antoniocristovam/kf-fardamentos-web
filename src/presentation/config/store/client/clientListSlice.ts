@@ -1,19 +1,14 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { ClientsModel } from 'domain/models';
 
-// eslint-disable-next-line @typescript-eslint/naming-convention
-interface ClientsState {
+interface IClientsState {
   clients: ClientsModel;
   client: ClientsModel;
 }
 
-// eslint-disable-next-line @typescript-eslint/naming-convention
-interface PayloadClients extends PayloadAction<ClientsModel> {}
+interface IPayloadClientsList extends PayloadAction<ClientsModel> {}
 
-// eslint-disable-next-line @typescript-eslint/naming-convention
-interface PayloadClientsList extends PayloadAction<ClientsModel> {}
-
-const initialState: ClientsState = {
+const initialState: IClientsState = {
   client: null,
   clients: null,
 };
@@ -22,11 +17,10 @@ export const clientsListSlice = createSlice({
   name: 'client',
   initialState,
   reducers: {
-    getClients: (state, action: PayloadClientsList) => {
+    getClients: (state, action: IPayloadClientsList) => {
       state.clients = action.payload;
     },
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    clearClients: (state, action: PayloadClients) => {
+    clearClients: (state) => {
       state.client = null;
     },
   },

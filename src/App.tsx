@@ -1,5 +1,5 @@
 import React from 'react';
-import { ToastContainer } from 'react-toastify'; //import Scss
+import { ToastContainer } from 'react-toastify';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
@@ -10,9 +10,9 @@ import 'react-credit-cards/es/styles-compiled.css';
 import 'react-perfect-scrollbar/dist/css/styles.css';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
-import './presentation/config/assets/scss/themes.scss'; // Routes
-import { Router } from './main/routing'; // Fake Backend
-import fakeBackend from './presentation/app/helpers/AuthType/fakeBackend'; // Activating fake backend
+import './presentation/config/assets/scss/themes.scss';
+import { Router } from './main/routing';
+import fakeBackend from './presentation/app/helpers/AuthType/fakeBackend';
 
 // Activating fake backend
 fakeBackend();
