@@ -1,4 +1,4 @@
-export interface EmployeeColumns {
+export interface IEmployeeColumns {
   cpf: string;
   name: string;
   role: string;

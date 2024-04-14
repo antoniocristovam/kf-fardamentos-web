@@ -17,13 +17,13 @@ interface IProps {
 }
 
 export const useEmployee = ({ employee }: IProps) => {
-  // Hook
+  // Hooks
   const dispatch = useDispatch();
 
   const { employees: employeeList } = useAppSelector(
     (state) => state.employees,
   );
-  const {} = useAppSelector((state) => state.employeeById);
+  // const {} = useAppSelector((state) => state.employeeById);
 
   const requestGetAllEmployee = useCallback((params: EmployeeParams) => {
     employee

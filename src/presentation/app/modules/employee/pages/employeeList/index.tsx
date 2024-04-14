@@ -11,14 +11,17 @@ interface IProps {
 }
 
 const EmployeeListIndex = ({ employee }: IProps) => {
-  // Hook
+  // States
+  const [pageSize, setPageSize] = useState(10);
+  const [currentPage, setCurrentPage] = useState(1);
+
+  // Hooks
   const navigate = useNavigate();
+
   const { currentUser } = useAuth();
+
   const { requestGetAllEmployee, requestDeleteEmployee, employeeList } =
     useEmployee({ employee });
-
-  const [currentPage, setCurrentPage] = useState(1);
-  const [pageSize, setPageSize] = useState(10);
 
   const handleNewPageChangeEmployees = (newPage: number) => {
     setCurrentPage(newPage);
@@ -28,6 +31,8 @@ const EmployeeListIndex = ({ employee }: IProps) => {
     setCurrentPage(page);
     setPageSize(newPerPage);
   };
+
+  // useEffect
 
   useEffect(() => {
     requestGetAllEmployee({

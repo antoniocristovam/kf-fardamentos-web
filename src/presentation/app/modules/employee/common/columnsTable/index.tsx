@@ -1,8 +1,8 @@
 import { TableColumn } from 'react-data-table-component';
 
-import { EmployeeColumns } from '../../models/data/employeeColumns';
+import { IEmployeeColumns } from '../../models/data/employeeColumns';
 
-export const makeColumnsEmployee = (): TableColumn<EmployeeColumns>[] => {
+export const makeColumnsEmployee = (): TableColumn<IEmployeeColumns>[] => {
   return [
     {
       name: 'Nome',

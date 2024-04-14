@@ -1,6 +1,6 @@
 import { IEmployee } from 'domain/usecases';
 import { useAuth } from 'presentation/app/hooks/useAuth';
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
 import { useEmployee } from '../../hook/useEmployee';
