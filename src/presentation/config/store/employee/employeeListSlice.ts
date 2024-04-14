@@ -1,19 +1,14 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { EmployeeModel } from 'domain/models';
 
-// eslint-disable-next-line @typescript-eslint/naming-convention
-interface EmployeeState {
+interface IEmployeeState {
   employees: EmployeeModel;
   employee: EmployeeModel;
 }
 
-// eslint-disable-next-line @typescript-eslint/naming-convention
-interface PayloadEmployee extends PayloadAction<EmployeeModel> {}
+interface IPayloadEmployeeList extends PayloadAction<EmployeeModel> {}
 
-// eslint-disable-next-line @typescript-eslint/naming-convention
-interface PayloadEmployeeList extends PayloadAction<EmployeeModel> {}
-
-const initialState: EmployeeState = {
+const initialState: IEmployeeState = {
   employee: null,
   employees: null,
 };
@@ -22,11 +17,10 @@ export const clientsEmployeeSlice = createSlice({
   name: 'employee',
   initialState,
   reducers: {
-    getEmployee: (state, action: PayloadEmployeeList) => {
+    getEmployee: (state, action: IPayloadEmployeeList) => {
       state.employees = action.payload;
     },
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    clearEmployee: (state, action: PayloadEmployee) => {
+    clearEmployee: (state) => {
       state.employee = null;
     },
   },

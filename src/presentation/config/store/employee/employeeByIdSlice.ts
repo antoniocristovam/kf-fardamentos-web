@@ -1,19 +1,14 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { EmployeeByIdModel } from 'domain/models';
 
-// eslint-disable-next-line @typescript-eslint/naming-convention
-interface EmployeeByIdState {
+interface IEmployeeByIdState {
   employeesById: EmployeeByIdModel;
   employeeById: EmployeeByIdModel;
 }
 
-// eslint-disable-next-line @typescript-eslint/naming-convention
-interface PayloadEmployeeById extends PayloadAction<EmployeeByIdModel> {}
+interface IPayloadGetEmployeeById extends PayloadAction<EmployeeByIdModel> {}
 
-// eslint-disable-next-line @typescript-eslint/naming-convention
-interface PayloadGetEmployeeById extends PayloadAction<EmployeeByIdModel> {}
-
-const initialState: EmployeeByIdState = {
+const initialState: IEmployeeByIdState = {
   employeeById: null,
   employeesById: null,
 };
@@ -22,11 +17,10 @@ export const employeeByIdSlice = createSlice({
   name: 'employeeById',
   initialState,
   reducers: {
-    getEmployeeById: (state, action: PayloadGetEmployeeById) => {
+    getEmployeeById: (state, action: IPayloadGetEmployeeById) => {
       state.employeesById = action.payload;
     },
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    clearEmployeeById: (state, action: PayloadEmployeeById) => {
+    clearEmployeeById: (state) => {
       state.employeeById = null;
     },
   },
