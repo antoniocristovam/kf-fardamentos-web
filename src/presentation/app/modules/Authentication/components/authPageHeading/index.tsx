@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Col, Row } from 'reactstrap';
 
-import Logo from '../../../../../../assets/images/logo-kf.png';
+import Logo from '../../../../../config/assets/images/logo-kf.png';
 
 const AuthPageHeading = () => {
   return (

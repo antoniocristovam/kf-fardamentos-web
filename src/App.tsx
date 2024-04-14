@@ -13,7 +13,6 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import './presentation/config/assets/scss/themes.scss';
 import { Router } from './main/routing';
 
-// Activating fake backend
 function App() {
   return (
     <React.Fragment>
