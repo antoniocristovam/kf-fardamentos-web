@@ -13,7 +13,7 @@ import { IAuthentication } from '../../../../../../domain/usecases';
 import { SessionStorageAdapter } from '../../../../../../infra/cache';
 
 // Hooks
-import { useAppSelector } from '../../../../../config/hooks/useRedux';
+// eslint-disable-next-line import-helpers/order-imports
 import { useAuth } from '../../../../hooks/useAuth';
 
 // Yup & Formik
@@ -30,7 +30,7 @@ interface IAuth {
 }
 
 export const Login = ({ authentication, session }: IAuth) => {
-  const [error, setError] = useState<boolean>(false);
+        const [error, setError] = useState<boolean>(false);
   const [loader, setLoader] = useState<boolean>(false);
   const [passwordShow, setPasswordShow] = useState<boolean>(false);
 

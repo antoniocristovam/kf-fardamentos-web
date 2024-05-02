@@ -7,5 +7,6 @@
         "toastify",
         "Toastify",
         "usecases"
-    ]
+    ],
+    "turboConsoleLog.insertEmptyLineAfterLogMessage": false
 }
