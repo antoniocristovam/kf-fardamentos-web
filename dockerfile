@@ -23,4 +23,4 @@ FROM --platform=$TARGETPLATFORM base as final
 EXPOSE 3000
 
 # Comando para iniciar a aplicação
-CMD ["yarn", "start"]
+ENTRYPOINT ["yarn", "start"]
