@@ -16,8 +16,8 @@ import {
   FormFeedback,
 } from 'reactstrap';
 
-import AuthPageHeading from '../../components/authPageHeading';
-import AuthWrapper from '../../components/authWrapper/authWrapper';
+import AuthPageHeading from '../../components/authPageHeading/index';
+import AuthWrapper from '../../components/authWrapper/AuthWrapper';
 
 // Assets
 
