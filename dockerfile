@@ -2,7 +2,7 @@
 FROM --platform=$BUILDPLATFORM node:alpine AS base
 
 # Configure o diretório de trabalho dentro do contêiner
-WORKDIR /src
+WORKDIR /app
 
 # Copie o arquivo package.json e o arquivo package-lock.json (ou yarn.lock se você estiver usando Yarn)
 COPY package*.json ./
